@@ -1,0 +1,11 @@
+@mixin flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin gridCenterCol($numItems, $widthItem) {
+  display: grid;
+  grid-template-columns: repeat($numItems, $widthItem);
+  align-items: center;
+}
