@@ -1,0 +1,17 @@
+#servants {
+  //   display: flex;
+  @include flexCenter;
+  flex-wrap: wrap;
+}
+.servant {
+  &-card {
+    width: 295px;
+    height: 503px;
+    background-color: red;
+    border: 1px solid black;
+    margin: 5px;
+  }
+  &-border {
+    background-image: url("../images/");
+  }
+}

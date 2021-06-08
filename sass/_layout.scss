@@ -1,81 +1,10 @@
+@import "nav", "servant";
+
 body {
   background-image: url($bgpattern);
   background-repeat: repeat;
 }
-#navigation {
-  @include flexCenter;
-  position: relative;
-  background: url($bgpattern),
-    radial-gradient(
-      106.89% 608.72% at 50% 50%,
-      $bgcolor_blue1 0%,
-      $bgcolor_blue3 100%
-    );
-  background-blend-mode: multiply, normal;
-  width: 100vw;
-  height: 270px;
-  //   Border with gradient color
-  border: solid 5px;
-  border-image-slice: 1;
-  border-image-source: linear-gradient(to bottom, #ffc700, #705700, #cc9f00);
-}
-
-#nav {
-  &-title {
-    @include flexCenter;
-    font-size: 3.5em;
-    @include fgoFont;
-
-    position: relative;
-    &::after {
-      text-shadow: 0px 0px 5px black;
-      color: transparent;
-      content: "Select a Class";
-    }
-
-    span {
-      position: absolute;
-      background: radial-gradient(
-        50% 50% at 50% 50%,
-        #fff 50%,
-        $bordercolor_gold1 100%
-      );
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      //   &::after {
-      //   }
-    }
-    // text-shadow: 2px 2px 10px black;
-    // color: r
-    // font-weight: bold;
-    // font-stretch: condensed;
-  }
-  &-menu {
-    &-1 {
-      @include gridCenterCol(14, auto);
-      column-gap: 12px;
-    }
-    &-2 {
-      @include flexCenter;
-    }
-  }
-}
-
-#search {
-  @include gridCenterCol(3, auto);
-  column-gap: 10px;
-
-  &-bar {
-    height: 55px;
-    width: 339px;
-    left: 427px;
-    top: 181px;
-    // Remove outline when selected Input text
-    outline-width: 0;
-    padding: 2px;
-    font-size: 1.2em;
-  }
-}
+// Button
 .button {
   &-fgo {
     height: 41px;
