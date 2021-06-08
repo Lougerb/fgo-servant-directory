@@ -5,13 +5,79 @@
 }
 .servant {
   &-card {
+    position: relative;
     width: 295px;
     height: 503px;
-    background-color: red;
+    background-color: transparent;
     border: 1px solid black;
     margin: 5px;
+    @include flexCenter;
   }
   &-border {
-    background-image: url("../images/");
+    // Sambple
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: inherit;
+    height: inherit;
+    // background-image: url("../images/servant-border/servant_card_00.png");
+    // background-size: cover;
+    z-index: 2;
+    user-select: none;
   }
+  &-picture {
+    position: absolute;
+    top: 17px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    user-select: none;
+
+    // width: 295px;
+    // height: 503px;
+    // width: 512px;
+    // height: 724px;
+    // background-image: url("../images/arashs2.png");
+    // background-size: 100% auto;
+    // background-repeat: no-repeat;
+  }
+  &-title {
+    position: absolute;
+    @include flexCenter;
+    flex-direction: column;
+    bottom: 0;
+    z-index: 10;
+    // Font styles
+    font-family: "Rasa", "Times New Roman", Times, serif;
+    font-stretch: condensed;
+    font-size: 2em;
+    text-align: center;
+    color: white;
+    @include fontStroke;
+    &-text {
+      position: relative;
+      top: 5px;
+      @include flexCenter;
+      flex-direction: column;
+    }
+  }
+  &-class {
+    //   &-name{
+
+    //   }
+    &-ico {
+      // background-image: url("../images/class-ico/archer-ico.png");
+      // background-size: 57px 57px;
+      user-select: none;
+      width: 54px;
+    }
+    &-name {
+      letter-spacing: 2px;
+    }
+  }
+  //   &-name {
+  //     position: absolute;
+  //     font-size: 0.5em;
+  //     top: 28px;
+  //   }
 }
