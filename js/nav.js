@@ -15,4 +15,4 @@ const saberOpt = document.getElementById("saber"),
   shielderOpt = document.getElementById("shielder"),
   beastOpt = document.getElementById("beast");
 
-//   const glowOption =
+//   const glowOption = function
