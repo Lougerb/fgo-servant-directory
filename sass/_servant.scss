@@ -1,7 +1,10 @@
 #servants {
-  //   display: flex;
+  display: flex;
   @include flexCenter;
-  flex-wrap: wrap;
+  flex-wrap: wrap-reverse;
+  flex-direction: row-reverse;
+
+  // @include gridCenterCol(4, 295px);
 }
 .servant {
   &-card {
