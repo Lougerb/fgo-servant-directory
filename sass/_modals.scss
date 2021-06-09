@@ -5,6 +5,11 @@
   padding: 10px;
   background-image: url("../images/bg_ptn.gif");
   background-repeat: repeat;
+
+  // @include flexCenter;
+  display: flex;
+  align-items: flex-start;
+
   &-wrapper {
     @include flexCenter;
     position: fixed;
@@ -15,4 +20,43 @@
     left: 0;
     z-index: 100;
   }
+  &-ascension {
+    @include flexCenter;
+    flex-direction: column;
+    span {
+      @include fgoFont;
+      font-size: 1.5em;
+    }
+  }
+  &-info {
+    text-align: left;
+  }
+}
+
+.modals {
+  &-table {
+    td {
+      border: 1px solid black;
+    }
+  }
+}
+
+.asc {
+  &-Radio {
+    display: none;
+  }
+  &-opt {
+    @include flexCenter;
+    width: 50px;
+    height: 40px;
+    margin: 5px;
+    background-color: white;
+    border: 1px solid black;
+    @include fgoFont;
+    font-size: 1.5em;
+    cursor: pointer;
+  }
+}
+#ascension {
+  @include flexCenter;
 }

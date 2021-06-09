@@ -2,9 +2,11 @@
   display: flex;
   @include flexCenter;
   flex-wrap: wrap;
-  // flex-direction: row-reverse;
 
-  // @include gridCenterCol(4, 295px);
+  &-portrait {
+    width: 287px;
+    height: 406px;
+  }
 }
 .servant {
   &-card {

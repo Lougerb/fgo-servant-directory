@@ -134,6 +134,10 @@ body {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
+#servants-portrait {
+  width: 287px;
+  height: 406px;
+}
 
 .servant-card {
   position: relative;
@@ -287,6 +291,12 @@ body {
   padding: 10px;
   background-image: url("../images/bg_ptn.gif");
   background-repeat: repeat;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 #modals-wrapper {
   display: -webkit-box;
@@ -304,4 +314,67 @@ body {
   top: 0;
   left: 0;
   z-index: 100;
+}
+#modals-ascension {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+#modals-ascension span {
+  font-weight: bold;
+  font-stretch: condensed;
+  font-size: 1.5em;
+}
+#modals-info {
+  text-align: left;
+}
+
+.modals-table td {
+  border: 1px solid black;
+}
+
+.asc-Radio {
+  display: none;
+}
+.asc-opt {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 50px;
+  height: 40px;
+  margin: 5px;
+  background-color: white;
+  border: 1px solid black;
+  font-weight: bold;
+  font-stretch: condensed;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+#ascension {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
