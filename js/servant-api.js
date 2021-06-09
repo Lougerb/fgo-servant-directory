@@ -1,4 +1,5 @@
 "use strict";
+const servantsWrapper = document.getElementById("servants");
 
 const generateServantElement = function (
   rarity,
@@ -6,8 +7,13 @@ const generateServantElement = function (
   servantName,
   servantClass
 ) {
-  const servantsWrapper = document.getElementById("servants");
-  servantsWrapper.insertAdjacentHTML(
+  const clickServant = document.createElement("div");
+
+  servantsWrapper.appendChild(clickServant);
+
+  clickServant.classList.add("servant-click");
+
+  clickServant.insertAdjacentHTML(
     "afterbegin",
     `
 <div class="servant-card">
@@ -30,27 +36,10 @@ const generateServantElement = function (
         </div>
       </div>`
   );
-  //   const servantHTML =  `
-  //     <div class="servant-card">
-  //         <div class="servant-border">
-  //           <img
-  //             src="./images/servant-border/servant_card_0${rarity}.png"
-  //             alt="${rarity} Star Border"
-  //           />
-  //         </div>
-  //         <div class="servant-picture">
-  //           <img src="${servantPic}" alt="${servantName}" />
-  //         </div>
-  //         <div class="servant-title">
-  //           <div class="servant-title-text">
-  //             <div class="servant-name">${servantName}</div>
-  //           </div>
-  //           <div class="servant-class-ico">
-  //             <img src="./images/class-ico/${servantClass}-ico.png" alt="${servantClass}" />
-  //           </div>
-  //         </div>
-  //       </div>
-  // `;
+
+  clickServant.addEventListener("click", function () {
+    console.log(`This is ${servantName}`);
+  });
 };
 // Search Single Servant
 export const servantData = async function (servant) {

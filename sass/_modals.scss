@@ -1,0 +1,18 @@
+#modals {
+  //   z-index: 100;
+  //   width: 1030px;
+  //   height: 571px;
+  padding: 10px;
+  background-image: url("../images/bg_ptn.gif");
+  background-repeat: repeat;
+  &-wrapper {
+    @include flexCenter;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    // background-color: red;
+    top: 0;
+    left: 0;
+    z-index: 100;
+  }
+}

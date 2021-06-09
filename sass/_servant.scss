@@ -1,8 +1,8 @@
 #servants {
   display: flex;
   @include flexCenter;
-  flex-wrap: wrap-reverse;
-  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  // flex-direction: row-reverse;
 
   // @include gridCenterCol(4, 295px);
 }
@@ -35,14 +35,6 @@
     width: 100%;
     height: 100%;
     user-select: none;
-
-    // width: 295px;
-    // height: 503px;
-    // width: 512px;
-    // height: 724px;
-    // background-image: url("../images/arashs2.png");
-    // background-size: 100% auto;
-    // background-repeat: no-repeat;
   }
   &-title {
     position: absolute;
@@ -83,4 +75,8 @@
   //     font-size: 0.5em;
   //     top: 28px;
   //   }
+
+  &-click {
+    cursor: pointer;
+  }
 }

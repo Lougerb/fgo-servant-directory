@@ -28,3 +28,21 @@ body {
     }
   }
 }
+
+#overlay {
+  @include flexCenter;
+  background-color: rgb(#000, 0.5);
+  backdrop-filter: blur(2px);
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 0;
+}
+
+.hideMe {
+  // display: none;
+  visibility: visible;
+  // opacity: 0;
+}
