@@ -6,7 +6,8 @@ const generateServantElement = function (
   rarity,
   servantPic,
   servantName,
-  servantClass
+  servantClass,
+  servantType
 ) {
   const clickServant = document.createElement("div");
 
@@ -40,6 +41,28 @@ const generateServantElement = function (
 
   clickServant.addEventListener("click", function () {
     modalsWrapper;
+    // Generate Modal here
+    createModal();
+    // Radui button function
+    const { 0: ascbeast, 1: asc1, 2: asc2, 3: asc3, 4: asc4 } = servantAscImg;
+
+    const firstAsc = document.getElementById("firstAsc");
+    const secondAsc = document.getElementById("secondAsc");
+    const thirdAsc = document.getElementById("thirdAsc");
+    const fourthAsc = document.getElementById("fourthAsc");
+
+    changeAscPic(
+      firstAsc,
+      secondAsc,
+      thirdAsc,
+      fourthAsc,
+      servantType,
+      ascbeast,
+      asc1,
+      asc2,
+      asc3,
+      asc4
+    );
     console.log(`This is ${servantName}`);
   });
 };
@@ -114,8 +137,14 @@ export const allServant = async function () {
           return sClass;
         }
       };
-      generateServantElement(sRarity, isNonServant(), sName, isNonClass());
-      // console.log(element);
+      generateServantElement(
+        sRarity,
+        isNonServant(),
+        sName,
+        isNonClass(),
+        sType
+      );
+      console.log(element);
       // console.log(sRarity, firstAsc, sName, sClass);
     });
   } catch (err) {
@@ -183,27 +212,46 @@ const createModal = function (
     }
   };
 
-  const generateModal = `
+  const generateAscBtn = function () {
+    const servantAscLength = Object.keys(servantAscImg).length;
+    for (let i = 0; i <= servantAscLength; i++) {
+      const ascNum =
+        i == 1 ? `${i}st` : i == 2 ? `${i}nd` : i == 3 ? `${i}rd` : `${i}th`;
+      if (i == 1) {
+        return `
+          <label class="asc-opt" for="${ascNum}-Asc" >
+                  <input type="radio" id="${ascNum}-Asc" name="ascensions" class="asc-Radio" checked>${ascNum}</input>
+                </label>
+                `;
+      } else {
+        return `
+          <label class="asc-opt" for="${ascNum}-Asc" >
+                  <input type="radio" id="${ascNum}-Asc" name="ascensions" class="asc-Radio" >${ascNum}</input>
+                </label>
+                `;
+      }
+    }
+  };
+
+  // const changeAscension = function () {
+  //   const asc = document.querySelectorAll(`input[name="ascensions"]`);
+  //   for (const ascOpt of asc) {
+  //     if (ascOpt.checked) {
+  //       console.log(ascOpt);
+  //     }
+  //   }
+  // };
+
+  return `
 <div id="modals" class="modals-hide">
         <!-- modal close -->
         <div id="modals-close" class="button-X"><p>&#10006 </p> </div>
         <!-- Ascension Column -->
         <div id="modals-ascension" class="modals-column">
-         <img src="${servantAscImg}" alt="${servantName}" id="servants-portrait">
+         <img src="${changeAscPic()}" alt="${servantName}" id="servants-portrait">
          <!-- Ascension -->
          <div id="ascension">
-          <label class="asc-opt" for="firstAsc" >
-            <input type="radio" id="firstAsc" name="ascensions" class="asc-Radio">1st</input>
-          </label>
-          <label class="asc-opt" for="secondAsc">
-            <input type="radio" id="secondAsc" name="ascensions" class="asc-Radio">2nd</input>
-          </label>
-          <label class="asc-opt" for="thirdAsc">
-            <input type="radio" id="thirdAsc" name="ascensions" class="asc-Radio">3rd</input>
-          </label>
-          <label class="asc-opt" for="fourthAsc">
-            <input type="radio" id="fourthAsc" name="ascensions" class="asc-Radio">4th</input>
-          </label>
+         ${generateAscBtn()}
          </div>
          <span>Ascensions</span>
         </div>
@@ -387,4 +435,34 @@ const createModal = function (
         </div>
       </div>
 `;
+  // changeAscension();
+
+  // const
+};
+
+const changeAscPic = function (
+  firstAsc_,
+  secondAsc_,
+  thirdAsc_,
+  fourthAsc_,
+  servantType_,
+  beastpic,
+  a1,
+  a2,
+  a3,
+  a4
+) {
+  if (servantType_ == "enemyCollectionDetail") {
+    return beastpic;
+  } else {
+    if (firstAsc_.checked) {
+      return a1;
+    } else if (secondAsc_.checked) {
+      return a2;
+    } else if (thirdAsc_.checked) {
+      return a3;
+    } else if (fourthAsc_.checked) {
+      return a4;
+    }
+  }
 };
