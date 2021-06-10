@@ -1,5 +1,6 @@
 "use strict";
 const servantsWrapper = document.getElementById("servants");
+const modalsWrapper = document.getElementById("modals-wrapper");
 
 const generateServantElement = function (
   rarity,
@@ -38,6 +39,7 @@ const generateServantElement = function (
   );
 
   clickServant.addEventListener("click", function () {
+    modalsWrapper;
     console.log(`This is ${servantName}`);
   });
 };
@@ -124,3 +126,265 @@ export const allServant = async function () {
 // export const testMe = function () {
 //   console.log("Hello Test");
 // };
+
+const createModal = function (
+  servantRarity,
+  servantAscImg,
+  servantName,
+  servantGender,
+  servantClass,
+  servantMaxLevel,
+  servantAttribute,
+  servantID,
+  servantATKBase,
+  servantATKMax,
+  servantHPBase,
+  servantHPMax,
+  servantVA,
+  servantIllu,
+  servantStr,
+  servantAgi,
+  servantLuck,
+  servantEndu,
+  servantMagic,
+  servantNP,
+  servantCards,
+  servantSkillIco1,
+  servantSkillIco2,
+  servantSkillIco3,
+  servantSkillName1,
+  servantSkillName2,
+  servantSkillName3,
+  servantSkillDesc1,
+  servantSkillDesc2,
+  servantSkillDesc3,
+  servantPassIco1,
+  servantPassIco2,
+  servantPassName1,
+  servantPassName2,
+  servantPassDesc1,
+  servantPassDesc2,
+  servantNPIco,
+  servantNPCard,
+  servantNPFace,
+  servantNPName,
+  servantNPDesc
+) {
+  // servantCards.forEach
+  const placeCards = () => {
+    servantCards.forEach((cards) => {
+      return `<img src="${cards}" class="class-card" alt="Card">`;
+    });
+  };
+
+  const rarity = () => {
+    for (let i = 0; i <= servantRarity; i++) {
+      return `<div class="rarity"></div>`;
+    }
+  };
+
+  const generateModal = `
+<div id="modals" class="modals-hide">
+        <!-- modal close -->
+        <div id="modals-close" class="button-X"><p>&#10006 </p> </div>
+        <!-- Ascension Column -->
+        <div id="modals-ascension" class="modals-column">
+         <img src="${servantAscImg}" alt="${servantName}" id="servants-portrait">
+         <!-- Ascension -->
+         <div id="ascension">
+          <label class="asc-opt" for="firstAsc" >
+            <input type="radio" id="firstAsc" name="ascensions" class="asc-Radio">1st</input>
+          </label>
+          <label class="asc-opt" for="secondAsc">
+            <input type="radio" id="secondAsc" name="ascensions" class="asc-Radio">2nd</input>
+          </label>
+          <label class="asc-opt" for="thirdAsc">
+            <input type="radio" id="thirdAsc" name="ascensions" class="asc-Radio">3rd</input>
+          </label>
+          <label class="asc-opt" for="fourthAsc">
+            <input type="radio" id="fourthAsc" name="ascensions" class="asc-Radio">4th</input>
+          </label>
+         </div>
+         <span>Ascensions</span>
+        </div>
+        <div id="modals-info-wrapper">
+
+          <!-- Info Column -->
+          <div id="modals-info" class="modals-column">
+            <table class="modals-table" >
+              <tr>
+                <td colspan="2" class="modals-info-bold">
+                  <div class="rarity-stars clipshadow">
+                  ${rarity()}
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="modals-info-bold">Name:</td>
+                <td class="modals-info-reg">${servantName}</td>
+              </tr>
+              <tr>
+                <td class="modals-info-bold">Gender:</td>
+                <td class="modals-info-reg">${servantGender}</td>
+              </tr> 
+              <tr>
+                <td class="modals-info-bold">Class:</td>
+                <td class="modals-info-reg">${servantClass}</td>
+              </tr>
+              <tr>
+                <td class="modals-info-bold">Max Level:</td>
+                <td class="modals-info-reg">${servantMaxLevel}</td>
+              </tr>
+              <tr>
+                <td class="modals-info-bold">Attribute:</td>
+                <td class="modals-info-reg">${servantAttribute}</td>
+              </tr>
+              <tr>
+                <td class="modals-info-bold">ID:</td>
+                <td class="modals-info-reg">${servantID}</td>
+              </tr>
+              <tr>
+                <td class="modals-info-bold">ATK:</td>
+                <td class="modals-info-reg">${servantATKBase} / ${servantATKMax}</td>
+              </tr>
+              <tr>
+                <td class="modals-info-bold">HP:</td>
+                <td class="modals-info-reg">${servantHPBase} / ${servantHPMax}</td>
+              </tr>
+              <tr>
+                <td class="modals-info-bold">VA:</td>
+                <td class="modals-info-reg">${servantVA}</td>
+              </tr>
+              <tr>
+                <td class="modals-info-bold">Illustrator:</td>
+                <td class="modals-info-reg">${servantIllu}</td>
+              </tr>
+              <tr>
+                <td colspan="2" class="modals-info-bold">Stats:</td>
+              </tr>
+              <tr>
+                <td colspan="2" class="modals-info-bold">
+                  <table class="stats">
+                    <tr>
+                      <td class="modals-info-bold">Strength:</td>
+                      <td class="modals-info-reg">${servantStr}</td>
+                      <td class="modals-info-bold">Endurance:</td>
+                      <td class="modals-info-reg">${servantEndu}</td>
+                    </tr>
+                    <tr>
+                      <td class="modals-info-bold">Agility:</td>
+                      <td class="modals-info-reg">${servantAgi}</td>
+                      <td class="modals-info-bold">Magic:</td>
+                      <td class="modals-info-reg">${servantMagic}</td>
+                    </tr>
+                    <tr>
+                      <td class="modals-info-bold">Luck:</td>
+                      <td class="modals-info-reg">${servantLuck}</td>
+                      <td class="modals-info-bold">Noble Phantasm:</td>
+                      <td class="modals-info-reg">${servantNP}</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              
+              <tr>
+                <td colspan="2" class="modals-info-bold">Cards:</td>
+              </tr>
+              <tr>
+                <td colspan="2" class="modals-info-bold">
+                ${placeCards()}
+                </td>
+              </tr>
+            </table>
+          </div>
+          <!-- Skills Column -->
+          <div class="modals-separator"></div>
+
+          <div id="modals-skills" class="modals-column">
+            <table class="modals-table">
+              <!-- Active Skills -->
+              <tr>
+                <td colspan="2" class="modals-info-bold modals-skill ">
+                  <p>Skills</p>
+                  <div class="modals-skill-title"></div>
+                </td>
+              </tr>
+              <tr>
+                <td align="center" class="skill-ico">
+                  <img src="${servantSkillIco1}"  alt="skill-1">
+                </td>
+                <td >
+                  <span class="modals-info-bold">${servantSkillName1}</span>
+                  <p class="modals-info-skill">${servantSkillDesc1}</p>
+                </td>
+              </tr>
+              <tr>
+                <td align="center" class="skill-ico">
+                  <img src="${servantSkillIco2}"  alt="skill-2">
+                </td>
+                <td >
+                  <span class="modals-info-bold">${servantSkillName2}</span>
+                  <p class="modals-info-skill">${servantSkillDesc2}</p>
+                </td>
+              </tr>
+              <tr>
+                <td align="center" class="skill-ico">
+                  <img src="${servantSkillIco3}"  alt="skill-3">
+                </td>
+                <td >
+                  <span class="modals-info-bold">${servantSkillName3}</span>
+                  <p class="modals-info-skill">${servantSkillDesc3}</p>
+                </td>
+              </tr>
+
+              <!-- Passive Skills -->
+              <tr>
+                <td colspan="2" class="modals-info-bold modals-skill">
+                  <p>Passive Skills</p>
+                  <div class="modals-skill-title"></div>
+                </td>
+              </tr>
+              <tr>
+                <td align="center" class="modals-info-reg skill-ico">
+                  <img src="${servantPassIco1}" alt="skill-1">
+                </td>
+                <td class="modals-info-reg">
+                  <span class="modals-info-bold">${servantPassName1}</span>
+                  <p>${servantPassDesc1}</p>
+                </td>
+              </tr>
+              <tr>
+                <td align="center" class="modals-info-reg skill-ico">
+                  <img src="${servantPassIco2}" alt="skill-2">
+                </td>
+                <td class="modals-info-reg">
+                  <span class="modals-info-bold">${servantPassName2}</span>
+                  <p>${servantPassDesc2}</p>
+                </td>
+              </tr>
+              <!-- Noble Phantasm -->
+              <tr>
+                <td colspan="2" class="modals-info-bold modals-skill">
+                  <p>Noble Phantasm</p>
+                  <div class="modals-skill-title"></div>
+                </td>
+              </tr>
+              <tr>
+                <td class="modals-info-reg">
+                  <div class="np-card">
+                    <img src="${servantNPFace}" alt="command" class="np-face">
+                    <img src="${servantNPIco}" alt="stella" class="np-icon">
+                    <img src="${servantNPCard}" class="np-bg" alt="skill-NP">
+                  </div>
+                </td>
+                <td class="modals-info-reg">
+                  <span class="modals-info-bold">${servantNPName}</span>
+                  <p>${servantNPDesc}</p>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+`;
+};

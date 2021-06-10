@@ -239,6 +239,38 @@ body {
   background-repeat: repeat;
 }
 
+.button-X {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  top: -17.5px;
+  right: -17.5px;
+  background-image: radial-gradient(#cecece, #fff);
+  -webkit-box-shadow: 0px 0px 5px black;
+          box-shadow: 0px 0px 5px black;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  cursor: pointer;
+}
+.button-X p {
+  color: #03458f;
+  font-size: 1.5em;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
 .button-fgo {
   height: 41px;
   width: 165px;
@@ -284,10 +316,11 @@ body {
 }
 
 .hideMe {
-  visibility: visible;
+  visibility: hidden;
 }
 
 #modals {
+  position: relative;
   padding: 10px;
   background-image: url("../images/bg_ptn.gif");
   background-repeat: repeat;
@@ -338,9 +371,60 @@ body {
 #modals-info {
   text-align: left;
 }
+#modals-info-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+}
 
+.modals-hide {
+  opacity: 0;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+  -webkit-transition-timing-function: ease;
+          transition-timing-function: ease;
+}
+.modals-show {
+  opacity: 1;
+}
+.modals-skill {
+  font-size: 1.5em;
+  font-style: italic;
+}
+.modals-skill p {
+  margin-top: 10px;
+}
+.modals-skill-title {
+  width: 100%;
+  height: 2px;
+  margin-bottom: 5px;
+  background-image: -webkit-gradient(linear, left top, right top, from(black), to(rgba(0, 0, 0, 0)));
+  background-image: linear-gradient(to right, black, rgba(0, 0, 0, 0));
+}
+.modals-column {
+  margin: 20px 5px;
+}
+.modals-separator {
+  width: 2px;
+  height: 400px;
+  background-image: radial-gradient(circle, #686868, rgba(0, 0, 0, 0));
+  margin: 0 15px;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+.modals-info-bold {
+  font-weight: bold;
+}
+.modals-info-reg {
+  font-weight: normal;
+}
+.modals-table {
+  max-width: 500px;
+}
 .modals-table td {
-  border: 1px solid black;
+  border: 0px solid black;
 }
 
 .asc-Radio {
@@ -377,4 +461,69 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.rarity {
+  width: 40px;
+  height: 40px;
+  background-image: radial-gradient(#fff19f, #ffc700);
+  -webkit-clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+          clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+.rarity-stars {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.clipshadow {
+  -webkit-filter: drop-shadow(0px 0px 1px black);
+          filter: drop-shadow(0px 0px 1px black);
+}
+
+.stats {
+  font-size: 0.8em;
+  width: 100%;
+  margin: 5px 0;
+}
+
+.class-card {
+  width: 50px;
+  height: auto;
+}
+
+.np-face {
+  position: absolute;
+  width: 60px;
+  bottom: 0;
+}
+.np-card {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100px;
+}
+.np-bg {
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+.np-icon {
+  position: absolute;
+}
+
+.skill-ico {
+  padding: 2px;
 }
