@@ -7,14 +7,13 @@ const generateServantElement = function (
   servantPic,
   servantName,
   servantClass,
-  servantType
+  servantType,
+  servantAscImg,
+  servantModal
 ) {
   const clickServant = document.createElement("div");
-
   servantsWrapper.appendChild(clickServant);
-
   clickServant.classList.add("servant-click");
-
   clickServant.insertAdjacentHTML(
     "afterbegin",
     `
@@ -41,9 +40,13 @@ const generateServantElement = function (
 
   clickServant.addEventListener("click", function () {
     modalsWrapper;
+    // modalsWrapper;
     // Generate Modal here
-    createModal();
-    // Radui button function
+    const modalDiv = document.createElement("div");
+    modalsWrapper.appendChild(modalDiv);
+
+    // Radio button function
+
     const { 0: ascbeast, 1: asc1, 2: asc2, 3: asc3, 4: asc4 } = servantAscImg;
 
     const firstAsc = document.getElementById("firstAsc");
@@ -101,17 +104,27 @@ export const servantData = async function (servant) {
 export const allServant = async function () {
   try {
     const response = await fetch(
-      `https://api.atlasacademy.io/export/NA/nice_servant.json`
+      `https://api.atlasacademy.io/export/NA/nice_servant_lore.json`
     );
     const resJSON = await response.json();
     resJSON.forEach((element) => {
       const {
         name: sName,
+        gender: sGender,
         className: sClass,
         rarity: sRarity,
+        lvMax: sMaxlvl,
+        attribute: sAttribute,
+        collectionNo: sID,
+        atkBase: sATKBase,
+        atkMax: sATKMax,
+        hpBase: sHPBase,
+        hpMax: sHPMax,
         type: sType,
+        cards: sCards,
         extraAssets: {
           charaGraph: {
+            ascension: sAssension,
             ascension: {
               0: nonServant,
               1: firstAsc,
@@ -120,8 +133,68 @@ export const allServant = async function () {
               4: fourthAsc,
             },
           },
+          // commands: {
+          //   ascension: { 1: sCardFace },
+          // },
+        },
+        skills: sSKills,
+        classPassive: sPassive,
+        noblePhantasms: sNP,
+        profile: {
+          cv: sVA,
+          illustrator: sIllu,
+          stats: {
+            strength: sStr,
+            agility: sAgi,
+            endurance: sEndu,
+            luck: sLuck,
+            magic: sMagic,
+            np: sStatNP,
+          },
         },
       } = element;
+
+      // Skills
+      // const [skill1, skill2, skill3] = sSKills;
+      // const {
+      //   name: sSkillName1,
+      //   detail: sSkillDetail1,
+      //   icon: sSkillIco1,
+      // } = skill1;
+      // const {
+      //   name: sSkillName2,
+      //   detail: sSkillDetail2,
+      //   icon: sSkillIco2,
+      // } = skill2;
+      // const {
+      //   name: sSkillName3,
+      //   detail: sSkillDetail3,
+      //   icon: sSkillIco3,
+      // } = skill3;
+      // Passive Skills
+      // sPassive.forEach((element) => {
+      // });
+      // for(let i=0; i<=sPassive.length;i++){
+      //   sPassive[i]
+      // }
+      // const [pass1, pass2] = sPassive;
+      // const {
+      //   name: sPassiveName1,
+      //   icon: sPassiveIco1,
+      //   detail: sPassiveDetail1,
+      // } = pass1;
+      // const {
+      //   name: sPassiveName2,
+      //   icon: sPassiveIco2,
+      //   detail: sPassiveDetail2,
+      // } = pass2;
+      // const [arrNP] = sNP;
+      // const {
+      //   card: sNPCard,
+      //   name: sNPName,
+      //   detail: sNPDetail,
+      //   icon: sNPIco,
+      // } = arrNP;
 
       const isNonServant = function () {
         if (sType == "enemyCollectionDetail") {
@@ -137,13 +210,45 @@ export const allServant = async function () {
           return sClass;
         }
       };
-      generateServantElement(
-        sRarity,
-        isNonServant(),
-        sName,
-        isNonClass(),
-        sType
-      );
+
+      // generateServantElement(
+      //   sRarity,
+      //   isNonServant(),
+      //   sName,
+      //   isNonClass(),
+      //   sType,
+      //   ascension
+      //   // createModal(
+      //   //   sRarity,
+      //   //   sAssension,
+      //   //   sName,
+      //   //   sGender,
+      //   //   sClass,
+      //   //   sMaxlvl,
+      //   //   sAttribute,
+      //   //   sID,
+      //   //   sATKBase,
+      //   //   sATKMax,
+      //   //   sHPBase,
+      //   //   sHPMax,
+      //   //   sVA,
+      //   //   sIllu,
+      //   //   sStr,
+      //   //   sAgi,
+      //   //   sLuck,
+      //   //   sEndu,
+      //   //   sMagic,
+      //   //   sStatNP,
+      //   //   sCards,
+      //   //   sSKills,
+      //   //   sPassive,
+      //   //   sNPIco,
+      //   //   sNPCard,
+      //   //   sCardFace,
+      //   //   sNPName,
+      //   //   sNPDetail
+      //   // )
+      // );
       console.log(element);
       // console.log(sRarity, firstAsc, sName, sClass);
     });
@@ -178,21 +283,8 @@ const createModal = function (
   servantMagic,
   servantNP,
   servantCards,
-  servantSkillIco1,
-  servantSkillIco2,
-  servantSkillIco3,
-  servantSkillName1,
-  servantSkillName2,
-  servantSkillName3,
-  servantSkillDesc1,
-  servantSkillDesc2,
-  servantSkillDesc3,
-  servantPassIco1,
-  servantPassIco2,
-  servantPassName1,
-  servantPassName2,
-  servantPassDesc1,
-  servantPassDesc2,
+  servantSkills,
+  servantPass,
   servantNPIco,
   servantNPCard,
   servantNPFace,
@@ -205,7 +297,7 @@ const createModal = function (
       return `<img src="${cards}" class="class-card" alt="Card">`;
     });
   };
-
+  //
   const rarity = () => {
     for (let i = 0; i <= servantRarity; i++) {
       return `<div class="rarity"></div>`;
@@ -232,15 +324,22 @@ const createModal = function (
       }
     }
   };
-
-  // const changeAscension = function () {
-  //   const asc = document.querySelectorAll(`input[name="ascensions"]`);
-  //   for (const ascOpt of asc) {
-  //     if (ascOpt.checked) {
-  //       console.log(ascOpt);
-  //     }
-  //   }
-  // };
+  const getSkills = function (skillArr) {
+    skillArr.forEach((element) => {
+      const { name, detail, icon } = element;
+      return `
+    <tr>
+      <td align="center" class="skill-ico">
+        <img src="${icon}"  alt="skill">
+      </td>
+      <td >
+        <span class="modals-info-bold">${name}</span>
+        <p class="modals-info-skill">${detail}</p>
+      </td>
+    </tr>
+    `;
+    });
+  };
 
   return `
 <div id="modals" class="modals-hide">
@@ -357,34 +456,8 @@ const createModal = function (
                   <div class="modals-skill-title"></div>
                 </td>
               </tr>
-              <tr>
-                <td align="center" class="skill-ico">
-                  <img src="${servantSkillIco1}"  alt="skill-1">
-                </td>
-                <td >
-                  <span class="modals-info-bold">${servantSkillName1}</span>
-                  <p class="modals-info-skill">${servantSkillDesc1}</p>
-                </td>
-              </tr>
-              <tr>
-                <td align="center" class="skill-ico">
-                  <img src="${servantSkillIco2}"  alt="skill-2">
-                </td>
-                <td >
-                  <span class="modals-info-bold">${servantSkillName2}</span>
-                  <p class="modals-info-skill">${servantSkillDesc2}</p>
-                </td>
-              </tr>
-              <tr>
-                <td align="center" class="skill-ico">
-                  <img src="${servantSkillIco3}"  alt="skill-3">
-                </td>
-                <td >
-                  <span class="modals-info-bold">${servantSkillName3}</span>
-                  <p class="modals-info-skill">${servantSkillDesc3}</p>
-                </td>
-              </tr>
-
+              ${getSkills(servantSkills)}
+              
               <!-- Passive Skills -->
               <tr>
                 <td colspan="2" class="modals-info-bold modals-skill">
@@ -392,24 +465,7 @@ const createModal = function (
                   <div class="modals-skill-title"></div>
                 </td>
               </tr>
-              <tr>
-                <td align="center" class="modals-info-reg skill-ico">
-                  <img src="${servantPassIco1}" alt="skill-1">
-                </td>
-                <td class="modals-info-reg">
-                  <span class="modals-info-bold">${servantPassName1}</span>
-                  <p>${servantPassDesc1}</p>
-                </td>
-              </tr>
-              <tr>
-                <td align="center" class="modals-info-reg skill-ico">
-                  <img src="${servantPassIco2}" alt="skill-2">
-                </td>
-                <td class="modals-info-reg">
-                  <span class="modals-info-bold">${servantPassName2}</span>
-                  <p>${servantPassDesc2}</p>
-                </td>
-              </tr>
+              ${getSkills(servantPass)}
               <!-- Noble Phantasm -->
               <tr>
                 <td colspan="2" class="modals-info-bold modals-skill">
@@ -466,3 +522,6 @@ const changeAscPic = function (
     }
   }
 };
+
+// Make a sample of rendered Element showing NOT AVAILABLE
+// if some certain servant doesnt have stats
