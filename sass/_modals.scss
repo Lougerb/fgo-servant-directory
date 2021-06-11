@@ -34,6 +34,14 @@
 }
 
 .modals {
+  &-notavailable {
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    font-style: italic;
+    color: red;
+    padding: 10px 0;
+  }
   &-hide {
     opacity: 0;
     transition: opacity 0.5s;
@@ -181,6 +189,9 @@
 .skill {
   &-ico {
     padding: 2px;
+    img {
+      width: 54px;
+    }
   }
 }
 // #1st-Asc{

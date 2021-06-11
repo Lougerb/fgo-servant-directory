@@ -1,15 +1,20 @@
 "use strict";
 const servantsWrapper = document.getElementById("servants");
-const modalsWrapper = document.getElementById("modals-wrapper");
+const modalsWrapper = document.querySelector("#modals-wrapper");
+const overlay = document.querySelector("#overlay");
 
 const generateServantElement = function (
   rarity,
   servantPic,
   servantName,
   servantClass,
+  servantSkills,
+  servantPass,
   servantType,
   servantAscImg,
-  servantModal
+  servantModal,
+  servantNP,
+  servantNPFace
 ) {
   const clickServant = document.createElement("div");
   servantsWrapper.appendChild(clickServant);
@@ -39,34 +44,49 @@ const generateServantElement = function (
   );
 
   clickServant.addEventListener("click", function () {
-    modalsWrapper;
+    console.log(`This is ${servantName}`);
     // modalsWrapper;
     // Generate Modal here
     const modalDiv = document.createElement("div");
+    const modalElem = servantModal;
     modalsWrapper.appendChild(modalDiv);
+    modalDiv.insertAdjacentHTML("afterbegin", modalElem);
+    overlay.classList.remove("hideMe");
+    modalsWrapper.classList.remove("hideMe");
 
-    // Radio button function
+    const servantSKillElem = document.getElementById("servantSkill");
+    const servantPassiveElem = document.getElementById("servantPassive");
+    const servantNPElem = document.getElementById("servantNP");
 
-    const { 0: ascbeast, 1: asc1, 2: asc2, 3: asc3, 4: asc4 } = servantAscImg;
+    // servantSKillElem.insertAdjacentHTML("afterbegin", getSkills(servantSkills));
+    getSkills(servantSkills, servantSKillElem);
+    getSkills(servantPass, servantPassiveElem);
+    getNP(servantNP, servantNPFace, servantNPElem);
+    // console.log(servantNPFace);
+    // servantPassiveElem.insertAdjacentHTML("afterbegin", getSkills(servantPass));
+    // console.log(getSkills(servantSkills));
+    // console.log(servantPass);
 
-    const firstAsc = document.getElementById("firstAsc");
-    const secondAsc = document.getElementById("secondAsc");
-    const thirdAsc = document.getElementById("thirdAsc");
-    const fourthAsc = document.getElementById("fourthAsc");
+    // Radio button functio
+    // const { 0: ascbeast, 1: asc1, 2: asc2, 3: asc3, 4: asc4 } = servantAscImg;
 
-    changeAscPic(
-      firstAsc,
-      secondAsc,
-      thirdAsc,
-      fourthAsc,
-      servantType,
-      ascbeast,
-      asc1,
-      asc2,
-      asc3,
-      asc4
-    );
-    console.log(`This is ${servantName}`);
+    // const firstAsc = document.getElementById("firstAsc");
+    // const secondAsc = document.getElementById("secondAsc");
+    // const thirdAsc = document.getElementById("thirdAsc");
+    // const fourthAsc = document.getElementById("fourthAsc");
+
+    // changeAscPic(
+    //   firstAsc,
+    //   secondAsc,
+    //   thirdAsc,
+    //   fourthAsc,
+    //   servantType,
+    //   ascbeast,
+    //   asc1,
+    //   asc2,
+    //   asc3,
+    //   asc4
+    // );
   });
 };
 // Search Single Servant
@@ -133,9 +153,7 @@ export const allServant = async function () {
               4: fourthAsc,
             },
           },
-          // commands: {
-          //   ascension: { 1: sCardFace },
-          // },
+          commands: sCommands,
         },
         skills: sSKills,
         classPassive: sPassive,
@@ -211,44 +229,42 @@ export const allServant = async function () {
         }
       };
 
-      // generateServantElement(
-      //   sRarity,
-      //   isNonServant(),
-      //   sName,
-      //   isNonClass(),
-      //   sType,
-      //   ascension
-      //   // createModal(
-      //   //   sRarity,
-      //   //   sAssension,
-      //   //   sName,
-      //   //   sGender,
-      //   //   sClass,
-      //   //   sMaxlvl,
-      //   //   sAttribute,
-      //   //   sID,
-      //   //   sATKBase,
-      //   //   sATKMax,
-      //   //   sHPBase,
-      //   //   sHPMax,
-      //   //   sVA,
-      //   //   sIllu,
-      //   //   sStr,
-      //   //   sAgi,
-      //   //   sLuck,
-      //   //   sEndu,
-      //   //   sMagic,
-      //   //   sStatNP,
-      //   //   sCards,
-      //   //   sSKills,
-      //   //   sPassive,
-      //   //   sNPIco,
-      //   //   sNPCard,
-      //   //   sCardFace,
-      //   //   sNPName,
-      //   //   sNPDetail
-      //   // )
-      // );
+      generateServantElement(
+        sRarity,
+        isNonServant(),
+        sName,
+        isNonClass(),
+        sSKills,
+        sPassive,
+        sType,
+        sAssension,
+        createModal(
+          sRarity,
+          sAssension,
+          sName,
+          sGender,
+          sClass,
+          sType,
+          sMaxlvl,
+          sAttribute,
+          sID,
+          sATKBase,
+          sATKMax,
+          sHPBase,
+          sHPMax,
+          sVA,
+          sIllu,
+          sStr,
+          sAgi,
+          sLuck,
+          sEndu,
+          sMagic,
+          sStatNP,
+          sCards
+        ),
+        sNP,
+        sCommands
+      );
       console.log(element);
       // console.log(sRarity, firstAsc, sName, sClass);
     });
@@ -267,6 +283,7 @@ const createModal = function (
   servantName,
   servantGender,
   servantClass,
+  servantType,
   servantMaxLevel,
   servantAttribute,
   servantID,
@@ -281,15 +298,8 @@ const createModal = function (
   servantLuck,
   servantEndu,
   servantMagic,
-  servantNP,
-  servantCards,
-  servantSkills,
-  servantPass,
-  servantNPIco,
-  servantNPCard,
-  servantNPFace,
-  servantNPName,
-  servantNPDesc
+  servantNPStat,
+  servantCards
 ) {
   // servantCards.forEach
   const placeCards = () => {
@@ -324,33 +334,39 @@ const createModal = function (
       }
     }
   };
-  const getSkills = function (skillArr) {
-    skillArr.forEach((element) => {
-      const { name, detail, icon } = element;
-      return `
-    <tr>
-      <td align="center" class="skill-ico">
-        <img src="${icon}"  alt="skill">
-      </td>
-      <td >
-        <span class="modals-info-bold">${name}</span>
-        <p class="modals-info-skill">${detail}</p>
-      </td>
-    </tr>
-    `;
-    });
-  };
+
+  // const changeServantPic = function () {
+  //   const { 0: ascbeast, 1: asc1, 2: asc2, 3: asc3, 4: asc4 } = servantAscImg;
+
+  //   const firstAsc = document.getElementById("firstAsc");
+  //   const secondAsc = document.getElementById("secondAsc");
+  //   const thirdAsc = document.getElementById("thirdAsc");
+  //   const fourthAsc = document.getElementById("fourthAsc");
+
+  //   return changeAscPic(
+  //     firstAsc,
+  //     secondAsc,
+  //     thirdAsc,
+  //     fourthAsc,
+  //     servantType,
+  //     ascbeast,
+  //     asc1,
+  //     asc2,
+  //     asc3,
+  //     asc4
+  //   );
+  // };
 
   return `
-<div id="modals" class="modals-hide">
-        <!-- modal close -->
+<div id="modals" class="modals-hide modals-show">
+<!--  modal close -->
         <div id="modals-close" class="button-X"><p>&#10006 </p> </div>
         <!-- Ascension Column -->
         <div id="modals-ascension" class="modals-column">
-         <img src="${changeAscPic()}" alt="${servantName}" id="servants-portrait">
+        <!--  <img src="${`changeServantPic()`}" alt="${servantName}" id="servants-portrait">-->
          <!-- Ascension -->
          <div id="ascension">
-         ${generateAscBtn()}
+         ${`INSERT RADIO HERE`}
          </div>
          <span>Ascensions</span>
         </div>
@@ -428,7 +444,7 @@ const createModal = function (
                       <td class="modals-info-bold">Luck:</td>
                       <td class="modals-info-reg">${servantLuck}</td>
                       <td class="modals-info-bold">Noble Phantasm:</td>
-                      <td class="modals-info-reg">${servantNP}</td>
+                      <td class="modals-info-reg">${servantNPStat}</td>
                     </tr>
                   </table>
                 </td>
@@ -446,54 +462,38 @@ const createModal = function (
           </div>
           <!-- Skills Column -->
           <div class="modals-separator"></div>
-
           <div id="modals-skills" class="modals-column">
-            <table class="modals-table">
+          <table class="modals-table">
               <!-- Active Skills -->
-              <tr>
-                <td colspan="2" class="modals-info-bold modals-skill ">
-                  <p>Skills</p>
-                  <div class="modals-skill-title"></div>
-                </td>
+              <tr id="servantSkill">
+              <td colspan="2" class="modals-info-bold modals-skill ">
+                <p>Skills</p>
+                <div class="modals-skill-title"></div>
+              </td>
               </tr>
-              ${getSkills(servantSkills)}
+              
               
               <!-- Passive Skills -->
-              <tr>
-                <td colspan="2" class="modals-info-bold modals-skill">
-                  <p>Passive Skills</p>
-                  <div class="modals-skill-title"></div>
-                </td>
+              <tr id="servantPassive">
+              <td colspan="2" class="modals-info-bold modals-skill">
+                <p>Passive Skills</p>
+                <div class="modals-skill-title"></div>
+              </td>
               </tr>
-              ${getSkills(servantPass)}
               <!-- Noble Phantasm -->
-              <tr>
+              <tr id="servantNP">
                 <td colspan="2" class="modals-info-bold modals-skill">
                   <p>Noble Phantasm</p>
                   <div class="modals-skill-title"></div>
                 </td>
               </tr>
-              <tr>
-                <td class="modals-info-reg">
-                  <div class="np-card">
-                    <img src="${servantNPFace}" alt="command" class="np-face">
-                    <img src="${servantNPIco}" alt="stella" class="np-icon">
-                    <img src="${servantNPCard}" class="np-bg" alt="skill-NP">
-                  </div>
-                </td>
-                <td class="modals-info-reg">
-                  <span class="modals-info-bold">${servantNPName}</span>
-                  <p>${servantNPDesc}</p>
-                </td>
-              </tr>
-            </table>
-          </div>
+          </table>
+        </div>
+
+          
         </div>
       </div>
 `;
-  // changeAscension();
-
-  // const
 };
 
 const changeAscPic = function (
@@ -525,3 +525,88 @@ const changeAscPic = function (
 
 // Make a sample of rendered Element showing NOT AVAILABLE
 // if some certain servant doesnt have stats
+
+// servantSKillElem.insertAdjacentHTML("afterbegin", getSkills(servantSkills,servantSKillElem));
+
+const getSkills = function (skillArr, skillElem) {
+  if (skillArr.length == 0) {
+    skillElem.insertAdjacentHTML(
+      "afterend",
+      `
+      <tr>
+        <td colspan="2" class="modals-notavailable">NOT AVAILABLE</td>
+      </tr>`
+    );
+  } else {
+    for (const element of skillArr) {
+      const { name, detail, icon } = element;
+      skillElem.insertAdjacentHTML(
+        "afterend",
+        `     <tr>
+                <td align="center" class="skill-ico">
+                  <img src="${icon}"  alt="skill">
+                </td>
+                <td >
+                  <span class="modals-info-bold">${name}</span>
+                  <p class="modals-info-skill">${detail}</p>
+                </td>
+              </tr>
+              `
+      );
+    }
+  }
+};
+
+const getNP = function (np, sNPFace, npElem) {
+  if (np.length === 0) {
+    npElem.insertAdjacentHTML(
+      "afterend",
+      `
+    <tr>
+      <td colspan="2" class="modals-notavailable">NOT AVAILABLE</td>
+    </tr>`
+    );
+  } else {
+    np.forEach((element) => {
+      const { name, icon, detail, card } = element;
+      npElem.insertAdjacentHTML(
+        "afterend",
+        `<tr>
+      <td class="modals-info-reg">
+        <div class="np-card">
+        ${
+          sNPFace.hasOwnProperty("ascension")
+            ? `<img src="${sNPFace.ascension[1]}" alt="command" class="np-face"></img>`
+            : ""
+        }
+          <img src="${icon}" alt="stella" class="np-icon">
+          <img src="./images/NP-Cards/${card}-np.png" class="np-bg" alt="skill-NP">
+        </div>
+      </td>
+      <td class="modals-info-reg">
+        <span class="modals-info-bold">${name}</span>
+        <p>${detail}</p>
+      </td>
+    </tr>`
+      );
+      //     return ` <tr>
+      //   <td class="modals-info-reg">
+      //     <div class="np-card">
+      //     ${
+      //       servantNPFace.hasOwnProperty("ascension")
+      //         ? `<img src="${sNPFace}" alt="command" class="np-face"></img>`
+      //         : ""}
+
+      //       <img src="${icon}" alt="stella" class="np-icon">
+      //       <img src="./images/NP-Cards/${card}-np.png" class="np-bg" alt="skill-NP">
+      //     </div>
+      //   </td>
+      //   <td class="modals-info-reg">
+      //     <span class="modals-info-bold">${name}</span>
+      //     <p>${detail}</p>
+      //   </td>
+      // </tr>
+      //   `;
+    });
+  }
+};
