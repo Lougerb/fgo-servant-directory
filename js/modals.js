@@ -308,29 +308,33 @@ export const getNP = function (np, sNPFace, npElem) {
     np.forEach((element) => {
       const { name, icon, detail, card } = element;
 
-      // Create a condition where IMAGE NOT FOUND
-
-      npElem.insertAdjacentHTML(
-        "afterend",
-        `<tr>
-        <td class="modals-info-reg">
-          <div class="np-card">
-          ${
-            sNPFace.hasOwnProperty("ascension")
-              ? `<img src="${sNPFace.ascension[1]}" alt="command" class="np-face"></img>`
-              : ""
-          }
-${`<img src="${icon}" alt="${name}" class="np-icon" onerror="">`} 
-            
-            <img src="./images/NP-Cards/${card}-np.png" class="np-bg" alt="skill-NP">
-          </div>
-        </td>
-        <td class="modals-info-reg">
-          <span class="modals-info-bold">${name}</span>
-          <p>${detail}</p>
-        </td>
-      </tr>`
-      );
+      checkIfImageExists(icon, function (isIMG) {
+        npElem.insertAdjacentHTML(
+          "afterend",
+          `<tr>
+          <td class="modals-info-reg">
+            <div class="np-card">
+            ${
+              sNPFace.hasOwnProperty("ascension")
+                ? `<img src="${sNPFace.ascension[1]}" alt="command" class="np-face"></img>`
+                : ""
+            }
+              ${
+                isIMG
+                  ? `<img src="${icon}" alt="${name}" class="np-icon">`
+                  : `<p class="np-NA">Icon not available</p>`
+              } 
+              
+              <img src="./images/NP-Cards/${card}-np.png" class="np-bg" alt="skill-NP">
+            </div>
+          </td>
+          <td class="modals-info-reg">
+            <span class="modals-info-bold">${name}</span>
+            <p>${detail}</p>
+          </td>
+        </tr>`
+        );
+      });
     });
   }
 };
@@ -365,5 +369,30 @@ export const generateAscBtn = function (sAsc, sAscElem) {
               `
     );
     //   }
+  }
+};
+
+const checkIfImageExists = function (url, callback) {
+  const img = new Image();
+
+  img.src = url;
+
+  if (img.complete) {
+    callback(true);
+  } else {
+    img.onload = () => {
+      callback(true);
+    };
+    img.onerror = () => {
+      callback(false);
+    };
+  }
+};
+
+const renderIMG = function (isIMGExist, url) {
+  if (!isIMGExist) {
+    return `<p>Icon Not Available</p>`;
+  } else {
+    return `<p>Icon Not Available</p>`;
   }
 };

@@ -48,8 +48,7 @@ export const generateServantElement = function (
 
   clickServant.addEventListener("click", function () {
     console.log(`This is ${servantName}`);
-    // modalsWrapper;
-    // Generate Modal here
+
     const modalDiv = document.createElement("div");
     const modalElem = servantModal;
     modalsWrapper.appendChild(modalDiv);
