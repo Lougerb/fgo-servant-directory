@@ -166,7 +166,7 @@ body {
   left: 0;
   width: inherit;
   height: inherit;
-  z-index: 2;
+  z-index: 1;
 }
 .servant-picture {
   position: absolute;
@@ -190,8 +190,8 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  bottom: 0;
-  z-index: 10;
+  bottom: 10px;
+  z-index: 2;
   font-family: "Rasa", "Times New Roman", Times, serif;
   font-stretch: condensed;
   font-size: 2em;
@@ -218,6 +218,13 @@ body {
 }
 .servant-class-ico {
   width: 54px;
+  height: 54px;
+  position: relative;
+}
+.servant-class-ico img {
+  top: 2px;
+  left: 3px;
+  position: absolute;
 }
 .servant-class-name {
   letter-spacing: 2px;
@@ -304,7 +311,7 @@ body {
   top: 0;
   left: 0;
   position: fixed;
-  z-index: 0;
+  z-index: 5;
 }
 
 .hideMe {
@@ -357,7 +364,7 @@ body {
   left: 0;
   width: inherit;
   height: inherit;
-  z-index: 2;
+  z-index: 1;
 }
 .servant-picture {
   position: absolute;
@@ -381,8 +388,8 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  bottom: 0;
-  z-index: 10;
+  bottom: 10px;
+  z-index: 2;
   font-family: "Rasa", "Times New Roman", Times, serif;
   font-stretch: condensed;
   font-size: 2em;
@@ -409,6 +416,13 @@ body {
 }
 .servant-class-ico {
   width: 54px;
+  height: 54px;
+  position: relative;
+}
+.servant-class-ico img {
+  top: 2px;
+  left: 3px;
+  position: absolute;
 }
 .servant-class-name {
   letter-spacing: 2px;
@@ -460,6 +474,10 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+#modals-ascension img {
+  width: 300px;
+  height: auto;
 }
 #modals-ascension span {
   font-weight: bold;
@@ -536,7 +554,19 @@ body {
 .asc-Radio {
   display: none;
 }
-.asc-opt {
+
+#ascension {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+#ascension label {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -556,17 +586,9 @@ body {
   font-size: 1.5em;
   cursor: pointer;
 }
-
-#ascension {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+#ascension input[type=radio]:checked + label {
+  background-color: #03458f;
+  color: white;
 }
 
 .rarity {

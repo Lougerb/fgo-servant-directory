@@ -19,6 +19,10 @@
   &-ascension {
     @include flexCenter;
     flex-direction: column;
+    img {
+      width: 300px;
+      height: auto;
+    }
     span {
       @include fgoFont;
       font-size: 1.5em;
@@ -103,12 +107,28 @@
     }
   }
 }
-
+// input[type="radio"]:checked ~ .asc-opt {
+//   // background: red;
+//   color: red;
+// }
 .asc {
   &-Radio {
     display: none;
   }
-  &-opt {
+  // &-opt {
+  //   @include flexCenter;
+  //   width: 50px;
+  //   height: 40px;
+  //   margin: 5px;
+  //   background-color: white;
+  //   border: 1px solid black;
+  //   @include fgoFont;
+  //   font-size: 1.5em;
+  //   cursor: pointer;
+  // }
+}
+#ascension {
+  & label {
     @include flexCenter;
     width: 50px;
     height: 40px;
@@ -119,9 +139,11 @@
     font-size: 1.5em;
     cursor: pointer;
   }
-}
-#ascension {
   @include flexCenter;
+  & input[type="radio"]:checked + label {
+    background-color: $bgcolor_blue1;
+    color: white;
+  }
 }
 
 .rarity {

@@ -34,7 +34,7 @@
     height: inherit;
     // background-image: url("../images/servant-border/servant_card_00.png");
     // background-size: cover;
-    z-index: 2;
+    z-index: 1;
     // user-select: none;
   }
   &-picture {
@@ -49,8 +49,9 @@
     position: absolute;
     @include flexCenter;
     flex-direction: column;
-    bottom: 0;
-    z-index: 10;
+    bottom: 10px;
+    // left: 41px;
+    z-index: 2;
     // Font styles
     font-family: "Rasa", "Times New Roman", Times, serif;
     font-stretch: condensed;
@@ -74,6 +75,13 @@
       // background-size: 57px 57px;
       // user-select: none;
       width: 54px;
+      height: 54px;
+      position: relative;
+      img {
+        top: 2px;
+        left: 3px;
+        position: absolute;
+      }
     }
     &-name {
       letter-spacing: 2px;
