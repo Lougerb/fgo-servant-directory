@@ -132,102 +132,104 @@ export const allServant = async function () {
       `https://api.atlasacademy.io/export/NA/nice_servant_lore.json`
     );
     const resJSON = await response.json();
-    resJSON.forEach((element) => {
-      const {
-        name: sName,
-        gender: sGender,
-        className: sClass,
-        rarity: sRarity,
-        lvMax: sMaxlvl,
-        attribute: sAttribute,
-        collectionNo: sID,
-        atkBase: sATKBase,
-        atkMax: sATKMax,
-        hpBase: sHPBase,
-        hpMax: sHPMax,
-        type: sType,
-        cards: sCards,
-        extraAssets: {
-          charaGraph: {
-            ascension: sAssension,
-            ascension: {
-              0: nonServant,
-              1: firstAsc,
-              2: secondAsc,
-              3: thirdAsc,
-              4: fourthAsc,
+    resJSON.forEach((element, i) => {
+      if (i < 20) {
+        const {
+          name: sName,
+          gender: sGender,
+          className: sClass,
+          rarity: sRarity,
+          lvMax: sMaxlvl,
+          attribute: sAttribute,
+          collectionNo: sID,
+          atkBase: sATKBase,
+          atkMax: sATKMax,
+          hpBase: sHPBase,
+          hpMax: sHPMax,
+          type: sType,
+          cards: sCards,
+          extraAssets: {
+            charaGraph: {
+              ascension: sAssension,
+              ascension: {
+                0: nonServant,
+                1: firstAsc,
+                2: secondAsc,
+                3: thirdAsc,
+                4: fourthAsc,
+              },
+            },
+            commands: sCommands,
+          },
+          skills: sSKills,
+          classPassive: sPassive,
+          noblePhantasms: sNP,
+          profile: {
+            cv: sVA,
+            illustrator: sIllu,
+            stats: {
+              strength: sStr,
+              agility: sAgi,
+              endurance: sEndu,
+              luck: sLuck,
+              magic: sMagic,
+              np: sStatNP,
             },
           },
-          commands: sCommands,
-        },
-        skills: sSKills,
-        classPassive: sPassive,
-        noblePhantasms: sNP,
-        profile: {
-          cv: sVA,
-          illustrator: sIllu,
-          stats: {
-            strength: sStr,
-            agility: sAgi,
-            endurance: sEndu,
-            luck: sLuck,
-            magic: sMagic,
-            np: sStatNP,
-          },
-        },
-      } = element;
+        } = element;
 
-      const isNonServant = function () {
-        if (sType == "enemyCollectionDetail") {
-          return nonServant;
-        } else {
-          return firstAsc;
-        }
-      };
-      const isNonClass = function () {
-        if (sClass == "grandCaster") {
-          return "caster";
-        } else {
-          return sClass;
-        }
-      };
+        const isNonServant = function () {
+          if (sType == "enemyCollectionDetail") {
+            return nonServant;
+          } else {
+            return firstAsc;
+          }
+        };
+        const isNonClass = function () {
+          if (sClass == "grandCaster") {
+            return "caster";
+          } else {
+            return sClass;
+          }
+        };
 
-      card.generateServantElement(
-        sRarity,
-        isNonServant(),
-        sName,
-        isNonClass(),
-        sSKills,
-        sPassive,
-        sType,
-        sAssension,
-        create.createModal(
+        card.generateServantElement(
+          sRarity,
+          isNonServant(),
           sName,
-          sGender,
-          sClass,
+          isNonClass(),
+          sSKills,
+          sPassive,
           sType,
-          sMaxlvl,
-          sAttribute,
-          sID,
-          sATKBase,
-          sATKMax,
-          sHPBase,
-          sHPMax,
-          sVA,
-          sIllu,
-          sStr,
-          sAgi,
-          sLuck,
-          sEndu,
-          sMagic,
-          sStatNP
-        ),
-        sNP,
-        sCommands,
-        sCards
-      );
-      console.log(element);
-      // console.log(sRarity, firstAsc, sName, sClass);
+          sAssension,
+          create.createModal(
+            sName,
+            sGender,
+            sClass,
+            sType,
+            sMaxlvl,
+            sAttribute,
+            sID,
+            sATKBase,
+            sATKMax,
+            sHPBase,
+            sHPMax,
+            sVA,
+            sIllu,
+            sStr,
+            sAgi,
+            sLuck,
+            sEndu,
+            sMagic,
+            sStatNP
+          ),
+          sNP,
+          sCommands,
+          sCards
+        );
+        console.log(element);
+        // console.log(sRarity, firstAsc, sName, sClass);
+      }
     });
   } catch (err) {
     console.error(err);
