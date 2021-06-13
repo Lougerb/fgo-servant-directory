@@ -5,6 +5,7 @@
   background-repeat: repeat;
   display: flex;
   align-items: flex-start;
+  z-index: 100;
 
   &-wrapper {
     @include flexCenter;
@@ -197,7 +198,7 @@
   }
   &-face {
     position: absolute;
-    width: 60px;
+    // width: 60px;
     bottom: 0;
   }
   &-card {
@@ -211,7 +212,8 @@
   }
   &-icon {
     position: absolute;
-    // top: 0;
+    top: 40px;
+    // bottom: 0;
     // scale: 200%;
   }
 }

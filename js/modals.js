@@ -305,13 +305,13 @@ export const getNP = function (np, sNPFace, npElem) {
       </tr>`
     );
   } else {
-    np.forEach((element) => {
-      const { name, icon, detail, card } = element;
+    // np.forEach((element) => {
+    const { name, icon, detail, card } = np[0];
 
-      checkIfImageExists(icon, function (isIMG) {
-        npElem.insertAdjacentHTML(
-          "afterend",
-          `<tr>
+    checkIfImageExists(icon, function (isIMG) {
+      npElem.insertAdjacentHTML(
+        "afterend",
+        `<tr>
           <td class="modals-info-reg">
             <div class="np-card">
             ${
@@ -333,9 +333,9 @@ export const getNP = function (np, sNPFace, npElem) {
             <p>${detail}</p>
           </td>
         </tr>`
-        );
-      });
+      );
     });
+    // });
   }
 };
 
@@ -362,13 +362,9 @@ export const generateAscBtn = function (sAsc, sAscElem) {
 
     sAscElem.insertAdjacentHTML(
       "beforeend",
-      `
-      <input type="radio" id="${ascNum}-Asc" name="ascensions" class="asc-Radio" ></input>
-        <label class="asc-opt" for="${ascNum}-Asc" >${ascNum}</label>
-              
-              `
+      `<input type="radio" id="${ascNum}-Asc" name="ascensions" class="asc-Radio" ></input>
+        <label class="asc-opt" for="${ascNum}-Asc" >${ascNum}</label> `
     );
-    //   }
   }
 };
 
@@ -386,13 +382,5 @@ const checkIfImageExists = function (url, callback) {
     img.onerror = () => {
       callback(false);
     };
-  }
-};
-
-const renderIMG = function (isIMGExist, url) {
-  if (!isIMGExist) {
-    return `<p>Icon Not Available</p>`;
-  } else {
-    return `<p>Icon Not Available</p>`;
   }
 };

@@ -222,8 +222,8 @@ body {
   position: relative;
 }
 .servant-class-ico img {
-  top: 2px;
-  left: 3px;
+  top: 0px;
+  left: 2px;
   position: absolute;
 }
 .servant-class-name {
@@ -420,8 +420,8 @@ body {
   position: relative;
 }
 .servant-class-ico img {
-  top: 2px;
-  left: 3px;
+  top: 0px;
+  left: 2px;
   position: absolute;
 }
 .servant-class-name {
@@ -442,6 +442,7 @@ body {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+  z-index: 100;
 }
 #modals-wrapper {
   display: -webkit-box;
@@ -635,7 +636,6 @@ body {
 }
 .np-face {
   position: absolute;
-  width: 60px;
   bottom: 0;
 }
 .np-card {
@@ -657,6 +657,7 @@ body {
 }
 .np-icon {
   position: absolute;
+  top: 40px;
 }
 
 .skill-ico {

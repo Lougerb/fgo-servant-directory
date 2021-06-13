@@ -2,7 +2,7 @@ import * as create from "./modals.js";
 
 const servantsWrapper = document.getElementById("servants");
 const modalsWrapper = document.querySelector("#modals-wrapper");
-const overlay = document.querySelector("#overlay");
+const overlay = document.getElementById("overlay");
 
 export const generateServantElement = function (
   rarity,
@@ -62,6 +62,33 @@ export const generateServantElement = function (
     const servantCommandCard = document.getElementById("servantCards");
     const servantRarityNum = document.getElementById("servantRarity");
     const servantAscElem = document.getElementById("ascension");
+    const closeBtn = document.getElementById("modals-close");
+    const mainModals = document.getElementById("modals");
+
+    // document.addEventListener("click", function (e) {
+    //   if (overlay.contains(e.target) || closeBtn.contains(e.target)) {
+    //     overlay.classList.add("hideMe");
+    //     modalsWrapper.classList.add("hideMe");
+    //     mainModals.remove();
+    //   }
+    // });
+    // const closeWindow = function (elem) {
+    //   elem.addEventListener("click", function () {
+    //     overlay.classList.add("hideMe");
+    //     modalsWrapper.classList.add("hideMe");
+    //     mainModals.remove();
+    //   });
+    // };
+    const closeWindow = function (elem) {
+      elem.addEventListener("click", function () {
+        overlay.classList.add("hideMe");
+        modalsWrapper.classList.add("hideMe");
+        mainModals.remove();
+      });
+    };
+
+    closeWindow(closeBtn);
+    closeWindow(overlay);
 
     // servantSKillElem.insertAdjacentHTML("afterbegin", getSkills(servantSkills));
     create.getSkills(servantSkills, servantSKillElem);
@@ -71,11 +98,6 @@ export const generateServantElement = function (
     create.rarity(rarity, servantRarityNum);
     create.generateAscBtn(servantAscImg, servantAscElem);
     console.log(servantAscImg);
-
-    // console.log(servantNPFace);
-    // servantPassiveElem.insertAdjacentHTML("afterbegin", getSkills(servantPass));
-    // console.log(getSkills(servantSkills));
-    // console.log(servantPass);
 
     // Radio button function
     const servantPortrait = document.getElementById("modals-ascension");
@@ -117,3 +139,5 @@ export const generateServantElement = function (
     });
   });
 };
+
+// closeWindow(overlay);
