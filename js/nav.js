@@ -16,3 +16,9 @@ const saberOpt = document.getElementById("saber"),
   beastOpt = document.getElementById("beast");
 
 //   const glowOption = function
+const filterClass = function (elem, servantClass) {
+  if (elem.checked) {
+    // Filter class
+    // display class cards
+  }
+};
