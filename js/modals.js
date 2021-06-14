@@ -19,64 +19,6 @@ export const createModal = function (
   servantMagic,
   servantNPStat
 ) {
-  // servantCards.forEach
-  //   const placeCards = () => {
-  //     servantCards.forEach((cards) => {
-  //       return `<img src="${cards}" class="class-card" alt="Card">`;
-  //     });
-  //   };
-  //   console.log(servantCards);
-  //
-  //   const rarity = () => {
-  //     for (let i = 0; i <= servantRarity; i++) {
-  //       return `<div class="rarity"></div>`;
-  //     }
-  //   };
-  //   console.log(servantAscImg);
-
-  //   const generateAscBtn = function () {
-  //     const servantAscLength = Object.keys(servantAscImg).length;
-  //     for (let i = 0; i <= servantAscLength; i++) {
-  //       const ascNum =
-  //         i == 1 ? `${i}st` : i == 2 ? `${i}nd` : i == 3 ? `${i}rd` : `${i}th`;
-  //       if (i == 1) {
-  //         return `
-  //             <label class="asc-opt" for="${ascNum}-Asc" >
-  //                     <input type="radio" id="${ascNum}-Asc" name="ascensions" class="asc-Radio" checked>${ascNum}</input>
-  //                   </label>
-  //                   `;
-  //       } else {
-  //         return `
-  //             <label class="asc-opt" for="${ascNum}-Asc" >
-  //                     <input type="radio" id="${ascNum}-Asc" name="ascensions" class="asc-Radio" >${ascNum}</input>
-  //                   </label>
-  //                   `;
-  //       }
-  //     }
-  //   };
-
-  // const changeServantPic = function () {
-  //   const { 0: ascbeast, 1: asc1, 2: asc2, 3: asc3, 4: asc4 } = servantAscImg;
-
-  //   const firstAsc = document.getElementById("firstAsc");
-  //   const secondAsc = document.getElementById("secondAsc");
-  //   const thirdAsc = document.getElementById("thirdAsc");
-  //   const fourthAsc = document.getElementById("fourthAsc");
-
-  //   return changeAscPic(
-  //     firstAsc,
-  //     secondAsc,
-  //     thirdAsc,
-  //     fourthAsc,
-  //     servantType,
-  //     ascbeast,
-  //     asc1,
-  //     asc2,
-  //     asc3,
-  //     asc4
-  //   );
-  // };
-
   return `
   <div id="modals" class="modals-hide modals-show">
   <!--  modal close -->
@@ -84,7 +26,6 @@ export const createModal = function (
           <!-- Ascension Column -->
           <div id="modals-ascension" class="modals-column" >
           
-            <!--  <img src="${`changeServantPic()`}" alt="${servantName}" >-->
             <!-- Ascension -->
 
             <div id="ascension">
@@ -235,33 +176,16 @@ export const changeAscPic = function (
   if (servantType_ == "enemyCollectionDetail") {
     if (firstAsc_.checked) {
       portraitElem.src = beastpic;
-      //   console.log(beastpic);
     }
   } else {
     if (firstAsc_.checked) {
       portraitElem.src = a1;
-      //   portraitElem.insertAdjacentHTML(
-      //     "afterbegin",
-      //     `<img src="${a1}" alt="${servantName}" ></img>`
-      //   );
     } else if (secondAsc_.checked) {
       portraitElem.src = a2;
-      //   portraitElem.insertAdjacentHTML(
-      //     "afterbegin",
-      //     `<img src="${a2}" alt="${servantName}" ></img>`
-      //   );
     } else if (thirdAsc_.checked) {
       portraitElem.src = a3;
-      //   portraitElem.insertAdjacentHTML(
-      //     "afterbegin",
-      //     `<img src="${a3}" alt="${servantName}" ></img>`
-      //   );
     } else if (fourthAsc_.checked) {
       portraitElem.src = a4;
-      //   portraitElem.insertAdjacentHTML(
-      //     "afterbegin",
-      //     `<img src="${a4}" alt="${servantName}" ></img>`
-      //   );
     }
   }
 };

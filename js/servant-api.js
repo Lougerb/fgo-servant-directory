@@ -1,100 +1,7 @@
 "use strict";
 import * as card from "./servant-card.js";
 import * as create from "./modals.js";
-// =======================================================================
 
-// const servantsWrapper = document.getElementById("servants");
-// const modalsWrapper = document.querySelector("#modals-wrapper");
-// const overlay = document.querySelector("#overlay");
-
-// const generateServantElement = function (
-//   rarity,
-//   servantPic,
-//   servantName,
-//   servantClass,
-//   servantSkills,
-//   servantPass,
-//   servantType,
-//   servantAscImg,
-//   servantModal,
-//   servantNP,
-//   servantNPFace
-//   ) {
-//   const clickServant = document.createElement("div");
-//   servantsWrapper.appendChild(clickServant);
-//   clickServant.classList.add("servant-click");
-//   clickServant.insertAdjacentHTML(
-//     "afterbegin",
-//     `
-//       <div class="servant-card">
-//         <div class="servant-border">
-//           <img
-//             src="./images/servant-border/servant_card_0${rarity}.png"
-//             alt="${rarity} Star Border"
-//           />
-//         </div>
-//         <div class="servant-picture">
-//           <img src="${servantPic}" alt="${servantName}" />
-//         </div>
-//         <div class="servant-title">
-//           <div class="servant-title-text">
-//             <div class="servant-name">${servantName}</div>
-//           </div>
-//           <div class="servant-class-ico">
-//             <img src="./images/class-ico/${servantClass}-ico.png" alt="${servantClass}" />
-//           </div>
-//         </div>
-//       </div>`
-//   );
-
-//   clickServant.addEventListener("click", function () {
-//     console.log(`This is ${servantName}`);
-//     // modalsWrapper;
-//     // Generate Modal here
-//     const modalDiv = document.createElement("div");
-//     const modalElem = servantModal;
-//     modalsWrapper.appendChild(modalDiv);
-//     modalDiv.insertAdjacentHTML("afterbegin", modalElem);
-//     overlay.classList.remove("hideMe");
-//     modalsWrapper.classList.remove("hideMe");
-
-//     const servantSKillElem = document.getElementById("servantSkill");
-//     const servantPassiveElem = document.getElementById("servantPassive");
-//     const servantNPElem = document.getElementById("servantNP");
-
-//     // servantSKillElem.insertAdjacentHTML("afterbegin", getSkills(servantSkills));
-//     getSkills(servantSkills, servantSKillElem);
-//     getSkills(servantPass, servantPassiveElem);
-//     getNP(servantNP, servantNPFace, servantNPElem);
-//     // console.log(servantNPFace);
-//     // servantPassiveElem.insertAdjacentHTML("afterbegin", getSkills(servantPass));
-//     // console.log(getSkills(servantSkills));
-//     // console.log(servantPass);
-
-//     // Radio button functio
-//     // const { 0: ascbeast, 1: asc1, 2: asc2, 3: asc3, 4: asc4 } = servantAscImg;
-
-//     // const firstAsc = document.getElementById("firstAsc");
-//     // const secondAsc = document.getElementById("secondAsc");
-//     // const thirdAsc = document.getElementById("thirdAsc");
-//     // const fourthAsc = document.getElementById("fourthAsc");
-
-//     // changeAscPic(
-//     //   firstAsc,
-//     //   secondAsc,
-//     //   thirdAsc,
-//     //   fourthAsc,
-//     //   servantType,
-//     //   ascbeast,
-//     //   asc1,
-//     //   asc2,
-//     //   asc3,
-//     //   asc4
-//     // );
-//   });
-// };
-// =======================================================================
-// Search Single Servant
 export const servantData = async function (servant) {
   try {
     // GET Datas
@@ -122,8 +29,6 @@ export const servantData = async function (servant) {
   } catch (err) {
     console.error(err);
   }
-
-  // console.log("Hello World");
 };
 
 export const allServant = async function () {
@@ -229,7 +134,11 @@ export const allServant = async function () {
       );
       console.log(element);
       // console.log(sRarity, firstAsc, sName, sClass);
-      // }
+      // window.addEventListener("load", function () {
+      // const loading = document.querySelector(".servant-load");
+      // loading.classList.add("hideMe");
+      // });
+      // } //
     });
   } catch (err) {
     console.error(err);

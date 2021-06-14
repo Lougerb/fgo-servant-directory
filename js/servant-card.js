@@ -22,10 +22,13 @@ export const generateServantElement = function (
 
   servantsWrapper.appendChild(clickServant);
   clickServant.classList.add("servant-click");
+
   clickServant.insertAdjacentHTML(
     "afterbegin",
     `
-        <div class="servant-card">
+        <div class="servant-card ${servantClass}">
+        <div class="servant-hover">
+        <p>View Profile</p></div>
           <div class="servant-border">
             <img
               src="./images/servant-border/servant_card_0${rarity}.png"
@@ -45,6 +48,8 @@ export const generateServantElement = function (
           </div>
         </div>`
   );
+  const loading = document.querySelector(".servant-load");
+  loading.classList.add("hideMe");
 
   clickServant.addEventListener("click", function () {
     console.log(`This is ${servantName}`);
@@ -65,20 +70,6 @@ export const generateServantElement = function (
     const closeBtn = document.getElementById("modals-close");
     const mainModals = document.getElementById("modals");
 
-    // document.addEventListener("click", function (e) {
-    //   if (overlay.contains(e.target) || closeBtn.contains(e.target)) {
-    //     overlay.classList.add("hideMe");
-    //     modalsWrapper.classList.add("hideMe");
-    //     mainModals.remove();
-    //   }
-    // });
-    // const closeWindow = function (elem) {
-    //   elem.addEventListener("click", function () {
-    //     overlay.classList.add("hideMe");
-    //     modalsWrapper.classList.add("hideMe");
-    //     mainModals.remove();
-    //   });
-    // };
     const closeWindow = function (elem) {
       elem.addEventListener("click", function () {
         overlay.classList.add("hideMe");
