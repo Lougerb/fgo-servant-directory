@@ -28,7 +28,8 @@ export const generateServantElement = function (
     `
         <div class="servant-card ${servantClass}">
         <div class="servant-hover">
-        <p>View Profile</p></div>
+          <p>View Profile</p>
+        </div>
           <div class="servant-border">
             <img
               src="./images/servant-border/servant_card_0${rarity}.png"
@@ -58,8 +59,10 @@ export const generateServantElement = function (
     const modalElem = servantModal;
     modalsWrapper.appendChild(modalDiv);
     modalDiv.insertAdjacentHTML("afterbegin", modalElem);
+    const mainModals = document.getElementById("modals");
     overlay.classList.remove("hideMe");
     modalsWrapper.classList.remove("hideMe");
+    mainModals.classList.add("modals-show");
 
     const servantSKillElem = document.getElementById("servantSkill");
     const servantPassiveElem = document.getElementById("servantPassive");
@@ -68,12 +71,12 @@ export const generateServantElement = function (
     const servantRarityNum = document.getElementById("servantRarity");
     const servantAscElem = document.getElementById("ascension");
     const closeBtn = document.getElementById("modals-close");
-    const mainModals = document.getElementById("modals");
 
     const closeWindow = function (elem) {
       elem.addEventListener("click", function () {
         overlay.classList.add("hideMe");
         modalsWrapper.classList.add("hideMe");
+        mainModals.classList.remove("modals-show");
         mainModals.remove();
       });
     };

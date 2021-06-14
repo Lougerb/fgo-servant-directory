@@ -190,21 +190,26 @@ body {
   z-index: 20;
   width: 100%;
   height: 100%;
-  opacity: 0;
+  background-color: rgba(0, 0, 0, 0);
   -webkit-transition-timing-function: ease-in-out;
           transition-timing-function: ease-in-out;
-  -webkit-transition: opacity 0.5s;
-  transition: opacity 0.5s;
+  -webkit-transition: background-color 0.6s;
+  transition: background-color 0.6s;
 }
 .servant-hover:hover {
-  background-color: black;
-  opacity: 0.6;
+  background-color: #03458f;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.servant-hover:hover p {
+  opacity: 1;
 }
 .servant-hover p {
-  font-size: 2em;
+  font-size: 1.5em;
   font-weight: bold;
   color: white;
-  opacity: 1;
+  -webkit-transition: opacity 0.6s;
+  transition: opacity 0.6s;
+  opacity: 0;
 }
 .servant-card {
   position: relative;
@@ -378,8 +383,8 @@ body {
 }
 
 .hideMe {
-  -webkit-animation: fadeOut 1s;
-          animation: fadeOut 1s;
+  -webkit-animation: fadeOut 0.5s;
+          animation: fadeOut 0.5s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
 }
@@ -447,21 +452,26 @@ body {
   z-index: 20;
   width: 100%;
   height: 100%;
-  opacity: 0;
+  background-color: rgba(0, 0, 0, 0);
   -webkit-transition-timing-function: ease-in-out;
           transition-timing-function: ease-in-out;
-  -webkit-transition: opacity 0.5s;
-  transition: opacity 0.5s;
+  -webkit-transition: background-color 0.6s;
+  transition: background-color 0.6s;
 }
 .servant-hover:hover {
-  background-color: black;
-  opacity: 0.6;
+  background-color: #03458f;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.servant-hover:hover p {
+  opacity: 1;
 }
 .servant-hover p {
-  font-size: 2em;
+  font-size: 1.5em;
   font-weight: bold;
   color: white;
-  opacity: 1;
+  -webkit-transition: opacity 0.6s;
+  transition: opacity 0.6s;
+  opacity: 0;
 }
 .servant-card {
   position: relative;
@@ -627,14 +637,14 @@ body {
   padding: 10px 0;
 }
 .modals-hide {
-  opacity: 0;
-  -webkit-transition: opacity 0.5s;
-  transition: opacity 0.5s;
-  -webkit-transition-timing-function: ease;
-          transition-timing-function: ease;
+  -webkit-clip-path: polygon(0 50%, 100% 50%, 100% 50%, 0 50%);
+          clip-path: polygon(0 50%, 100% 50%, 100% 50%, 0 50%);
 }
 .modals-show {
-  opacity: 1;
+  -webkit-animation: clipOut 0.5s;
+          animation: clipOut 0.5s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 .modals-skill {
   font-size: 1.5em;
@@ -787,4 +797,18 @@ body {
 }
 .skill-ico img {
   width: 54px;
+}
+
+@-webkit-keyframes clipOut {
+  100% {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+}
+
+@keyframes clipOut {
+  100% {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
 }

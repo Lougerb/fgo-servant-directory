@@ -20,7 +20,7 @@ export const createModal = function (
   servantNPStat
 ) {
   return `
-  <div id="modals" class="modals-hide modals-show">
+  <div id="modals" class="modals-hide">
   <!--  modal close -->
           <div id="modals-close" class="button-X"><p>&#10006 </p> </div>
           <!-- Ascension Column -->
