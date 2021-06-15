@@ -52,12 +52,12 @@ export const filterServants = function (sWrapper, sName) {
     const servantRadio = navServants[i];
 
     servantRadio.addEventListener("click", function () {
-      // Do something to this radio
-      // if (servantRadio.id == "all") {
-      //   wrapper.classList.remove("hideServant");
-      // }
-      // ============================================================
       sWrapper.forEach((wrapper) => {
+        // Do something to this radio
+        // if (servantRadio.id == "all") {
+        //   wrapper.classList.remove("hideServant");
+        // }
+        // ============================================================
         // Check if beast
         const beast = "beast".split("");
         const beastSplit = wrapper.classList[1].split("");
@@ -70,6 +70,7 @@ export const filterServants = function (sWrapper, sName) {
           if (wrapper.classList[1] != servantRadio.id) {
             wrapper.classList.add("hideServant");
           } else if (wrapper.classList[1] == servantRadio.id) {
+            console.log(servantRadio.id);
             wrapper.classList.remove("hideServant");
           }
         }
@@ -78,14 +79,38 @@ export const filterServants = function (sWrapper, sName) {
       // ============================================================
     });
   }
-  searchBar.addEventListener("keyup", function (e) {
-    const userSearch = e.target.value;
+  // SEARCH BAR
+  // sNames.forEach(names => {
 
-    console.log(userSearch);
-  });
-  // sName.forEach((names) => {
-  //   console.log(names.innerHTML);
   // });
+
+  // ====================================================
+  searchBar.addEventListener("keyup", function (e) {
+    const userSearch = e.target.value.toLowerCase();
+
+    // const filteredServants = sName.filter((names) => {
+    //   return names.innerHTML.includes(userSearch);
+    // });
+    // console.log(filteredServants);
+
+    sName.forEach((names) => {
+      const servantName = names.innerHTML;
+      const servantCardEl =
+        names.parentElement.parentElement.parentElement.parentElement;
+      const filteredS = servantName.toLowerCase().includes(userSearch);
+      if (!filteredS) {
+        servantCardEl.classList.add("hideServant");
+        console.log(servantName);
+        console.log(servantCardEl);
+      } else {
+        servantCardEl.classList.remove("hideServant");
+      }
+      // console.log(filteredS);
+      // console.log(servantName);
+    });
+  });
+  // console.log(sName);
+
   // sWrapper.forEach((element) => {
   //   console.log(element.classList);
   // });

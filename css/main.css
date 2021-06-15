@@ -209,7 +209,7 @@ body {
   cursor: pointer;
 }
 .nav-servant-radio {
-  display: block;
+  display: none;
 }
 
 #servants {
