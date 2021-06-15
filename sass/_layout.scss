@@ -1,5 +1,3 @@
-@import "nav", "servant";
-
 body {
   background-image: url($bgpattern);
   background-repeat: repeat;
@@ -60,8 +58,9 @@ body {
 }
 
 .hideMe {
-  // opacity: 0;
-  // visibility: hidden;
   animation: fadeOut 0.5s;
   animation-fill-mode: forwards;
+}
+.hideServant {
+  display: none;
 }
