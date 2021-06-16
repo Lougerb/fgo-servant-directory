@@ -106,27 +106,32 @@ body {
   z-index: 5;
 }
 
-.hideMe {
-  -webkit-animation: fadeOut 1s;
-          animation: fadeOut 1s;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-}
-
-.hideServant {
-  -webkit-animation: fadeOut 1s;
-          animation: fadeOut 1s;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-  display: none;
-}
-
 .showServant {
   -webkit-animation: fadeIn 0.5s;
           animation: fadeIn 0.5s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
   display: block;
+}
+
+.hideMe {
+  -webkit-animation: fadeOut 1s;
+          animation: fadeOut 1s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+.hideModal {
+  -webkit-animation: fadeOut 0.2s;
+          animation: fadeOut 0.2s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+.hideServant {
+  -webkit-animation: fadeOut 0.5s;
+          animation: fadeOut 0.5s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  display: none;
 }
 
 #navigation {

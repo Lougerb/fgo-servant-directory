@@ -136,8 +136,8 @@ export const displayServant = function (servantData) {
 
       const mainModals = document.getElementById("modals");
       const modalsWrapper2 = document.querySelector(".modals-wrapper-2");
-      overlay.classList.remove("hideMe");
-      modalsWrapper.classList.remove("hideMe");
+      overlay.classList.remove("hideModal");
+      modalsWrapper.classList.remove("hideModal");
       mainModals.classList.add("modals-show");
 
       const servantSKillElem = document.getElementById("servantSkill");
@@ -150,8 +150,8 @@ export const displayServant = function (servantData) {
 
       const closeWindow = function (elem) {
         elem.addEventListener("click", function () {
-          overlay.classList.add("hideMe");
-          modalsWrapper.classList.add("hideMe");
+          overlay.classList.add("hideModal");
+          modalsWrapper.classList.add("hideModal");
           mainModals.classList.remove("modals-show");
           modalsWrapper2.remove();
         });

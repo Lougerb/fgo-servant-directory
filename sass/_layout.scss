@@ -60,17 +60,36 @@ body {
   z-index: 5;
 }
 
-.hideMe {
-  animation: fadeOut 1s;
-  animation-fill-mode: forwards;
-}
-.hideServant {
-  animation: fadeOut 1s;
-  animation-fill-mode: forwards;
-  display: none;
-}
+// .hideMe {
+//   animation: fadeOut 1s;
+//   animation-fill-mode: forwards;
+// }
+// .hideModal {
+//   animation: fadeOut 1s;
+//   animation-fill-mode: forwards;
+// }
+// .hideServant {
+//   animation: fadeOut 0.5s;
+//   animation-fill-mode: forwards;
+//   display: none;
+// }
 .showServant {
   animation: fadeIn 0.5s;
   animation-fill-mode: forwards;
   display: block;
+}
+.hide {
+  &Me {
+    animation: fadeOut 1s;
+    animation-fill-mode: forwards;
+  }
+  &Modal {
+    animation: fadeOut 0.2s;
+    animation-fill-mode: forwards;
+  }
+  &Servant {
+    animation: fadeOut 0.5s;
+    animation-fill-mode: forwards;
+    display: none;
+  }
 }
