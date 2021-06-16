@@ -63,15 +63,23 @@ export const filterServants = function (sWrapper, sName) {
         const beastSplit = wrapper.classList[1].split("");
         const isBeast = beast.every((letter) => beastSplit.includes(letter));
         if (servantRadio.id == "all") {
-          wrapper.classList.remove("hideServant");
+          toggleHide(wrapper, "showServant", "hideServant");
+          // wrapper.classList.remove("hideServant");
+          // wrapper.classList.add("showServant");
         } else if (servantRadio.id == "beast" && isBeast) {
-          wrapper.classList.remove("hideServant");
+          toggleHide(wrapper, "showServant", "hideServant");
+          // wrapper.classList.remove("hideServant");
+          // wrapper.classList.add("showServant");
         } else {
           if (wrapper.classList[1] != servantRadio.id) {
-            wrapper.classList.add("hideServant");
+            toggleHide(wrapper, "hideServant", "showServant");
+            // wrapper.classList.add("hideServant");
+            // wrapper.classList.remove("showServant");
           } else if (wrapper.classList[1] == servantRadio.id) {
             console.log(servantRadio.id);
-            wrapper.classList.remove("hideServant");
+            toggleHide(wrapper, "showServant", "hideServant");
+            // wrapper.classList.remove("hideServant");
+            // wrapper.classList.add("showServant");
           }
         }
         // console.log(wrapper);
@@ -91,12 +99,21 @@ export const filterServants = function (sWrapper, sName) {
         names.parentElement.parentElement.parentElement.parentElement;
       const filteredS = servantName.toLowerCase().includes(userSearch);
       if (!filteredS) {
-        servantCardEl.classList.add("hideServant");
+        toggleHide(servantCardEl, "hideServant", "showServant");
+        // servantCardEl.classList.add("hideServant");
+        // servantCardEl.classList.remove("showServant");
         console.log(servantName);
         console.log(servantCardEl);
       } else {
-        servantCardEl.classList.remove("hideServant");
+        toggleHide(servantCardEl, "showServant", "hideServant");
+        // servantCardEl.classList.remove("hideServant");
+        // servantCardEl.classList.add("showServant");
       }
     });
   });
+};
+
+const toggleHide = function (elem, addClass, removeClass) {
+  elem.classList.remove(removeClass);
+  elem.classList.add(addClass);
 };

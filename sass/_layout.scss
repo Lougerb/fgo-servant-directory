@@ -61,9 +61,16 @@ body {
 }
 
 .hideMe {
-  animation: fadeOut 0.1s;
+  animation: fadeOut 1s;
   animation-fill-mode: forwards;
 }
 .hideServant {
+  animation: fadeOut 1s;
+  animation-fill-mode: forwards;
   display: none;
+}
+.showServant {
+  animation: fadeIn 0.5s;
+  animation-fill-mode: forwards;
+  display: block;
 }

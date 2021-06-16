@@ -67,11 +67,15 @@ export const displayServant = function (servantData) {
 
     const servantCardWrapper = document.createElement("div");
     servantsWrapper.appendChild(servantCardWrapper);
-    servantCardWrapper.classList.add("servant-wrapper");
-    servantCardWrapper.classList.add(`${isGrandCaster()}`);
+    servantCardWrapper.classList.add(
+      "servant-wrapper",
+      `${isGrandCaster()}`,
+      "showServant"
+    );
+
     servantCardWrapper.insertAdjacentHTML(
       "afterbegin",
-      `<div class="servant-card">
+      `<div class="servant-card" >
           <div class="servant-hover">
             <p>View Profile</p>
           </div>
@@ -131,6 +135,7 @@ export const displayServant = function (servantData) {
       );
 
       const mainModals = document.getElementById("modals");
+      const modalsWrapper2 = document.querySelector(".modals-wrapper-2");
       overlay.classList.remove("hideMe");
       modalsWrapper.classList.remove("hideMe");
       mainModals.classList.add("modals-show");
@@ -148,7 +153,7 @@ export const displayServant = function (servantData) {
           overlay.classList.add("hideMe");
           modalsWrapper.classList.add("hideMe");
           mainModals.classList.remove("modals-show");
-          mainModals.remove();
+          modalsWrapper2.remove();
         });
       };
 

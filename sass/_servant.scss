@@ -20,10 +20,19 @@
   100% {
     opacity: 0;
     visibility: hidden;
-    display: none;
+    // display: none;
+  }
+}
+@keyframes fadeIn {
+  100% {
+    opacity: 1;
+    visibility: visible;
   }
 }
 .servant {
+  &-wrapper {
+    opacity: 0;
+  }
   &-load {
     @include flexCenter;
     background-color: black;
