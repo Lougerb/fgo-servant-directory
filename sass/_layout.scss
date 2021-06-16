@@ -6,10 +6,13 @@ body {
 .button {
   &-X {
     position: absolute;
+    z-index: 200;
     width: 35px;
     height: 35px;
-    top: -17.5px;
-    right: -17.5px;
+    top: -5px;
+    right: -5px;
+    // top: -17.5px;
+    // right: -17.5px;
     background-image: radial-gradient(#cecece, #fff);
     box-shadow: 0px 0px 5px black;
     transform: rotate(45deg);
@@ -58,7 +61,7 @@ body {
 }
 
 .hideMe {
-  animation: fadeOut 0.5s;
+  animation: fadeOut 0.1s;
   animation-fill-mode: forwards;
 }
 .hideServant {

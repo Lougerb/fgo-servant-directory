@@ -39,6 +39,11 @@
 }
 
 .modals {
+  &-wrapper {
+    &-2 {
+      position: relative;
+    }
+  }
   &-notavailable {
     font-size: 2em;
     font-weight: bold;

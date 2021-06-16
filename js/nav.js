@@ -80,18 +80,10 @@ export const filterServants = function (sWrapper, sName) {
     });
   }
   // SEARCH BAR
-  // sNames.forEach(names => {
-
-  // });
 
   // ====================================================
   searchBar.addEventListener("keyup", function (e) {
     const userSearch = e.target.value.toLowerCase();
-
-    // const filteredServants = sName.filter((names) => {
-    //   return names.innerHTML.includes(userSearch);
-    // });
-    // console.log(filteredServants);
 
     sName.forEach((names) => {
       const servantName = names.innerHTML;
@@ -105,32 +97,6 @@ export const filterServants = function (sWrapper, sName) {
       } else {
         servantCardEl.classList.remove("hideServant");
       }
-      // console.log(filteredS);
-      // console.log(servantName);
     });
   });
-  // console.log(sName);
-
-  // sWrapper.forEach((element) => {
-  //   console.log(element.classList);
-  // });
-  // console.log(sWrapper);
 };
-
-// for (let i of Object.keys(navServants)) {
-//   const servantRadio = navServants[i];
-//   servantRadio.addEventListener("click", function () {
-//     console.log(`This is ${servantRadio.id}`);
-//   });
-// }
-
-// Check if constains beast
-const beastStr = "beast123";
-const beastReal = "beast";
-const beastArr = beastStr.split("");
-const beastRealArr = beastReal.split("");
-console.log(beastArr);
-console.log(beastRealArr);
-
-var containsAll = beastRealArr.every((i) => beastArr.includes(i));
-console.log(containsAll);
