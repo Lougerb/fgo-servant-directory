@@ -19,7 +19,8 @@ const saberOpt = document.getElementById("saber"),
   allOpt = document.getElementById("all"),
   navServants = document.getElementsByName("servant"),
   searchBar = document.getElementById("search-bar"),
-  navServantIcons = document.getElementById("nav-menu-1");
+  navServantIcons = document.getElementById("nav-menu-1"),
+  navSelectServant = getComputedStyle(navServantIcons, ":after");
 
 allOpt.checked = true;
 
@@ -125,6 +126,7 @@ const toggleHide = function (elem, addClass, removeClass) {
 
 navServantIcons.addEventListener("touchstart", startTouch, false);
 navServantIcons.addEventListener("touchmove", moveTouch, false);
+document.addEventListener("click", closeNav);
 
 // Swipe Up / Down / Left / Right
 var initialX = null;
@@ -176,4 +178,11 @@ function moveTouch(e) {
   initialY = null;
 
   e.preventDefault();
+}
+
+function closeNav(e) {
+  // console.log(e);
+  if (e.target != navServantIcons) {
+    navServantIcons.style.left = "-200px";
+  }
 }
