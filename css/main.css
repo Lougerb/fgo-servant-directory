@@ -155,6 +155,12 @@ body {
   border-image-source: linear-gradient(to bottom, #ffc700, #705700, #cc9f00);
 }
 
+#nav-burger {
+  display: none;
+}
+#nav-container {
+  position: relative;
+}
 #nav-title {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -168,12 +174,13 @@ body {
   font-size: 3.5em;
   font-weight: bold;
   font-stretch: condensed;
+  text-align: center;
   position: relative;
 }
 #nav-title::after {
   text-shadow: 0px 0px 5px black;
   color: transparent;
-  content: "Select a Class";
+  content: "FGO Servant Directory";
 }
 #nav-title span {
   position: absolute;
@@ -691,6 +698,22 @@ label input[type=radio]:checked + .nav-servant-ico {
   }
 }
 @media (max-width: 600px) {
+  #nav-burger {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 5px 10px;
+    z-index: 10;
+    background: white;
+    -webkit-box-shadow: inset 0px -10px 10px rgba(0, 0, 0, 0.5);
+            box-shadow: inset 0px -10px 10px rgba(0, 0, 0, 0.5);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    font-size: 2em;
+    font-weight: 900;
+    color: #03458f;
+  }
   #nav-container {
     padding: 0 5px;
   }
@@ -700,7 +723,7 @@ label input[type=radio]:checked + .nav-servant-ico {
     height: 100vh;
     padding: 10px 20px;
     top: 0;
-    left: 0;
+    left: -200px;
     background: url("../images/bg_ptn.gif"), radial-gradient(106.89% 608.72% at 50% 50%, rgba(0, 0, 0, 0.2) 0%, rgba(255, 255, 255, 0));
     background-blend-mode: multiply, normal;
     border: solid 5px;
@@ -715,23 +738,6 @@ label input[type=radio]:checked + .nav-servant-ico {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-  }
-  #nav-menu-1::after {
-    content: "Select Class";
-    position: absolute;
-    top: 40px;
-    right: 0;
-    padding: 5px;
-    height: 20px;
-    background: white;
-    -webkit-box-shadow: inset 0px -10px 10px rgba(0, 0, 0, 0.5);
-            box-shadow: inset 0px -10px 10px rgba(0, 0, 0, 0.5);
-    -webkit-transform: rotate(270deg);
-            transform: rotate(270deg);
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    font-weight: bold;
-    color: #03458f;
   }
   #nav-menu-2 {
     display: grid;

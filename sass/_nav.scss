@@ -19,16 +19,23 @@
 }
 
 #nav {
+  &-burger {
+    display: none;
+  }
+  &-container {
+    position: relative;
+  }
   &-title {
     @include flexCenter;
     font-size: 3.5em;
     @include fgoFont;
+    text-align: center;
 
     position: relative;
     &::after {
       text-shadow: 0px 0px 5px black;
       color: transparent;
-      content: "Select a Class";
+      content: "FGO Servant Directory";
     }
 
     span {
