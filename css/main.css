@@ -12,10 +12,6 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
-  position: relative;
-}
-
 li {
   list-style: none;
 }
@@ -750,7 +746,7 @@ label input[type=radio]:checked + .nav-servant-ico {
             flex-direction: column;
     height: 80vh;
     width: 90vw;
-    overflow-x: scroll;
+    overflow-y: scroll;
   }
   #modals-ascension {
     display: -webkit-box;
