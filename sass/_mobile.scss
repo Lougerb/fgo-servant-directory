@@ -51,8 +51,8 @@
     overflow-y: scroll;
     &-ascension {
       @include flexCenter;
-      height: 502px;
-      width: 300px;
+      // height: 502px;
+      // width: 300px;
     }
     &-info {
       &-wrapper {
