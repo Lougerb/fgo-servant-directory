@@ -501,8 +501,8 @@ label input[type=radio]:checked + .nav-servant-ico {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 502px;
-  width: 300px;
+  min-height: 502px;
+  min-width: 300px;
 }
 #modals-ascension img {
   width: 300px;

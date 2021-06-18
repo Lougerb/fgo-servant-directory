@@ -20,8 +20,9 @@
   &-ascension {
     @include flexCenter;
     flex-direction: column;
-    height: 502px;
-    width: 300px;
+    // For safari browser
+    min-height: 502px;
+    min-width: 300px;
     img {
       width: 300px;
       height: auto;
