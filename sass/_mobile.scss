@@ -61,6 +61,9 @@
     }
   }
   .modals {
+    &-column {
+      margin: 10px 2.5px;
+    }
     &-table {
       @include flexCenter;
     }

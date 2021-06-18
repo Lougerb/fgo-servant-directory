@@ -768,6 +768,9 @@ label input[type=radio]:checked + .nav-servant-ico {
             flex-direction: column;
   }
 
+  .modals-column {
+    margin: 10px 2.5px;
+  }
   .modals-table {
     display: -webkit-box;
     display: -ms-flexbox;
