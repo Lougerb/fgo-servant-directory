@@ -32,6 +32,7 @@
 .servant {
   &-wrapper {
     opacity: 0;
+    // transform: scale(0.9);
   }
   &-load {
     @include flexCenter;

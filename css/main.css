@@ -161,6 +161,19 @@ body {
 }
 #nav-container {
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 #nav-title {
   display: -webkit-box;
@@ -172,7 +185,7 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  font-size: 3.5em;
+  font-size: 2.5em;
   font-weight: bold;
   font-stretch: condensed;
   text-align: center;
@@ -181,7 +194,7 @@ body {
 #nav-title::after {
   text-shadow: 0px 0px 5px black;
   color: transparent;
-  content: "FGO Servant Directory";
+  content: "Select a Class";
 }
 #nav-title span {
   position: absolute;
@@ -227,10 +240,14 @@ body {
   font-size: 1.2em;
 }
 
+.nav-logo {
+  width: 200px;
+}
 .nav-servant-ico {
   cursor: pointer;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-tap-highlight-color: transparent;
+  width: 60px;
 }
 .nav-servant-radio {
   display: none;
@@ -558,7 +575,7 @@ label input[type=radio]:checked + .nav-servant-ico {
   font-weight: normal;
 }
 .modals-table {
-  max-width: 500px;
+  max-width: 400px;
 }
 .modals-table td {
   border: 0px solid black;
@@ -693,14 +710,84 @@ label input[type=radio]:checked + .nav-servant-ico {
   }
 }
 @media (max-width: 1281px) {
+  .servant-card {
+    width: 150px;
+    height: 255px;
+  }
+  .servant-title {
+    font-size: 1em;
+  }
+  .servant-class-ico {
+    width: 27px;
+    height: 27px;
+  }
+  .servant-class-ico img {
+    top: 4.6px;
+    left: 0.4px;
+  }
+
   #nav-menu-1 {
     grid-template-columns: repeat(7, auto);
-    row-gap: 20px;
+    row-gap: 5px;
+  }
+}
+@media (max-width: 1025px) {
+  /* big landscape tablets, laptops, and desktops */
+  #modals {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: 80vh;
+    width: 90vw;
+    overflow-x: scroll;
+  }
+  #modals-ascension {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  #modals-info-wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+
+  .modals-table {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .modals-wrapper-2 {
+    height: 80vh;
+    width: 90vw;
+  }
+  .modals-separator {
+    display: none;
   }
 }
 @media (max-width: 600px) {
   #nav-title {
-    font-size: 2em;
+    display: none;
   }
   #nav-container {
     padding: 0 5px;

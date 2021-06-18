@@ -202,8 +202,32 @@ export const getSkills = function (skillArr, skillElem) {
         </tr>`
     );
   } else {
+    skillArr.forEach((details, i) => {
+      // SKILLS LIMITED TO 3 ONLY
+      if (i < 3) {
+        const { name, detail, icon } = details;
+        console.log(details);
+        skillElem.insertAdjacentHTML(
+          "afterend",
+          `     <tr>
+                  <td align="center" class="skill-ico">
+                    <img src="${icon}"  alt="skill">
+                  </td>
+                  <td >
+                    <span class="modals-info-bold">${name}</span>
+                    <p class="modals-info-skill">${detail}</p>
+                  </td>
+                </tr>
+                `
+        );
+      }
+    });
+
+    // TO REVEAL ALL SKILLS
+    /** 
     for (const element of skillArr) {
       const { name, detail, icon } = element;
+      console.log(element);
       skillElem.insertAdjacentHTML(
         "afterend",
         `     <tr>
@@ -218,6 +242,7 @@ export const getSkills = function (skillArr, skillElem) {
                 `
       );
     }
+    */
   }
 };
 
