@@ -51,6 +51,8 @@
     overflow-y: scroll;
     &-ascension {
       @include flexCenter;
+      height: 502px;
+      width: 300px;
     }
     &-info {
       &-wrapper {
@@ -69,7 +71,7 @@
         // margin: 0 5px;
         height: 80vh;
         width: 90vw;
-        // overflow-y: scroll;
+        overflow-y: scroll;
       }
     }
     &-separator {

@@ -758,6 +758,8 @@ label input[type=radio]:checked + .nav-servant-ico {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+    height: 502px;
+    width: 300px;
   }
   #modals-info-wrapper {
     -webkit-box-orient: vertical;
@@ -780,6 +782,7 @@ label input[type=radio]:checked + .nav-servant-ico {
   .modals-wrapper-2 {
     height: 80vh;
     width: 90vw;
+    overflow-y: scroll;
   }
   .modals-separator {
     display: none;
