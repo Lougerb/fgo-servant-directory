@@ -61,19 +61,6 @@ body {
   z-index: 5;
 }
 
-// .hideMe {
-//   animation: fadeOut 1s;
-//   animation-fill-mode: forwards;
-// }
-// .hideModal {
-//   animation: fadeOut 1s;
-//   animation-fill-mode: forwards;
-// }
-// .hideServant {
-//   animation: fadeOut 0.5s;
-//   animation-fill-mode: forwards;
-//   display: none;
-// }
 .showServant {
   animation: fadeIn 0.5s;
   animation-fill-mode: forwards;
@@ -93,4 +80,22 @@ body {
     animation-fill-mode: forwards;
     display: none;
   }
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgb(235, 235, 235);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  // border: 1px solid black;
+  box-shadow: inset 0 0 5px black;
+  border-radius: 10px;
+  background-image: radial-gradient(#cecece, #fff);
 }
