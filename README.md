@@ -4,7 +4,7 @@
 ## Disclaimer:
 - I do not own the most of the assets use here nor the API of the servants.
 - Most assets used here are from DelightWorks' [Fate/Grand Order](https://fate-go.us/)
-- You can visit API owner's site [here](https://api.atlasacademy.io/rapidoc)
+- You can visit API owner's site [here](https://atlasacademy.io/)
 - This project is for portfolio purposes only
 
 
