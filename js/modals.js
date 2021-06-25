@@ -206,7 +206,7 @@ export const getSkills = function (skillArr, skillElem) {
       // SKILLS LIMITED TO 3 ONLY
       if (i < 3) {
         const { name, detail, icon } = details;
-        console.log(details);
+        // console.log(details);
         skillElem.insertAdjacentHTML(
           "afterend",
           `     <tr>

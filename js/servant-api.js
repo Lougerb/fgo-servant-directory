@@ -25,7 +25,7 @@ export const servantData = async function (servant) {
       },
     } = _servantData;
 
-    console.log(_servantData);
+    // console.log(_servantData);
   } catch (err) {
     console.error(err);
   }

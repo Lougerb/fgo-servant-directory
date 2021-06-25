@@ -104,7 +104,7 @@ export const displayServant = function (servantData) {
     // click servant profile for modals=========================================================
 
     servantCardWrapper.addEventListener("click", function () {
-      console.log(`This is ${sName}`);
+      // console.log(`This is ${sName}`);
 
       // const modalDiv = document.createElement("div");
       // modalsWrapper.appendChild(modalDiv);
