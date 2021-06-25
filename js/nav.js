@@ -24,31 +24,6 @@ const saberOpt = document.getElementById("saber"),
 
 allOpt.checked = true;
 
-const filterClass = function (radioBtn, servantClass, callback) {
-  if (radioBtn.checked) {
-    console.log(radioBtn.id);
-    callback(true);
-  } else {
-    callback(false);
-  }
-};
-const servantList = [
-  "saber",
-  "lancer",
-  "archer",
-  "rider",
-  "caster",
-  "assassin",
-  "berserker",
-  "avenger",
-  "ruler",
-  "moonCancer",
-  "alterEgo",
-  "foreigner",
-  "shielder",
-  "beast",
-  "all",
-];
 export const filterServants = function (sWrapper, sName) {
   for (let i of Object.keys(navServants)) {
     const servantRadio = navServants[i];
@@ -78,7 +53,7 @@ export const filterServants = function (sWrapper, sName) {
             // wrapper.classList.add("hideServant");
             // wrapper.classList.remove("showServant");
           } else if (wrapper.classList[1] == servantRadio.id) {
-            console.log(servantRadio.id);
+            // console.log(servantRadio.id);
             toggleHide(wrapper, "showServant", "hideServant");
             // wrapper.classList.remove("hideServant");
             // wrapper.classList.add("showServant");
@@ -104,8 +79,8 @@ export const filterServants = function (sWrapper, sName) {
         toggleHide(servantCardEl, "hideServant", "showServant");
         // servantCardEl.classList.add("hideServant");
         // servantCardEl.classList.remove("showServant");
-        console.log(servantName);
-        console.log(servantCardEl);
+        // console.log(servantName);
+        // console.log(servantCardEl);
       } else {
         toggleHide(servantCardEl, "showServant", "hideServant");
         // servantCardEl.classList.remove("hideServant");
@@ -157,22 +132,23 @@ function moveTouch(e) {
     if (diffX > 0) {
       // swiped left
       navServantIcons.style.left = "-200px";
-      console.log("swiped left");
+      // console.log("swiped left");
     } else {
       // swiped right
       navServantIcons.style.left = "0";
-      console.log("swiped right");
-    }
-  } else {
-    // sliding vertically
-    if (diffY > 0) {
-      // swiped up
-      console.log("swiped up");
-    } else {
-      // swiped down
-      console.log("swiped down");
+      // console.log("swiped right");
     }
   }
+  //  else {
+  //   // sliding vertically
+  //   if (diffY > 0) {
+  //     // swiped up
+  //     console.log("swiped up");
+  //   } else {
+  //     // swiped down
+  //     console.log("swiped down");
+  //   }
+  // }
 
   initialX = null;
   initialY = null;
